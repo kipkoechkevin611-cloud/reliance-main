@@ -8,21 +8,21 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-[#103B66] text-white">
-      <Container className="py-12 md:py-16 lg:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <Container className="py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="min-w-0">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shrink-0">
-                <span className="text-[#103B66] font-bold text-xl">R</span>
+            <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg flex items-center justify-center shrink-0">
+                <span className="text-[#103B66] font-bold text-lg sm:text-xl">R</span>
               </div>
-              <span className="text-xl font-bold break-words">{siteConfig.name}</span>
+              <span className="text-lg sm:text-xl font-bold break-words">{siteConfig.name}</span>
             </div>
-            <p className="text-[#B8C5D0] text-base mb-6 leading-relaxed">
+            <p className="text-[#B8C5D0] text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
               Reliable water storage solutions for residential, agricultural, commercial, and industrial applications.
             </p>
             {siteConfig.contact.address && (
-              <address className="text-[#B8C5D0] text-base not-italic leading-relaxed break-words">
+              <address className="text-[#B8C5D0] text-sm sm:text-base not-italic leading-relaxed break-words">
                 {siteConfig.contact.address}
               </address>
             )}
@@ -30,8 +30,8 @@ export function SiteFooter() {
 
           {/* Products */}
           <div className="min-w-0">
-            <h3 className="font-semibold mb-6 text-lg">Products</h3>
-            <ul className="space-y-4 text-base">
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Products</h3>
+            <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
               <li>
                 <Link href={routes.products} className="text-[#B8C5D0] hover:text-white transition-colors">
                   Vertical Tanks
@@ -62,8 +62,8 @@ export function SiteFooter() {
 
           {/* Company */}
           <div className="min-w-0">
-            <h3 className="font-semibold mb-6 text-lg">Company</h3>
-            <ul className="space-y-4 text-base">
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Company</h3>
+            <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
               <li>
                 <Link href={routes.about} className="text-[#B8C5D0] hover:text-white transition-colors">
                   About Us
@@ -94,8 +94,8 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div className="min-w-0">
-            <h3 className="font-semibold mb-6 text-lg">Contact</h3>
-            <ul className="space-y-4 text-base">
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Contact</h3>
+            <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
               {siteConfig.contact.phone && (
                 <li>
                   <a
@@ -135,7 +135,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-[#526575] mt-10 pt-8 text-center text-base text-[#B8C5D0]">
+        <div className="border-t border-[#526575] mt-8 sm:mt-10 pt-6 sm:pt-8 text-center text-sm sm:text-base text-[#B8C5D0]">
           <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
         </div>
       </Container>

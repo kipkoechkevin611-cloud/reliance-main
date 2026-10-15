@@ -47,33 +47,33 @@ export default function CalculatorPage() {
 
   const recommendedProducts = result
     ? products
-        .filter((p) => p.capacityLiters >= result.recommendedCapacity * (outputUnit === 'litres' ? 1 : outputUnit === 'cubic-metres' ? 1000 : 3.78541))
-        .sort((a, b) => a.capacityLiters - b.capacityLiters)
-        .slice(0, 3)
+      .filter((p) => p.capacityLiters >= result.recommendedCapacity * (outputUnit === 'litres' ? 1 : outputUnit === 'cubic-metres' ? 1000 : 3.78541))
+      .sort((a, b) => a.capacityLiters - b.capacityLiters)
+      .slice(0, 3)
     : []
 
   return (
     <div className="min-h-screen bg-[#F3F6F8]">
       {/* Header */}
-      <div className="bg-[#103B66] text-white py-12 md:py-16">
+      <div className="bg-[#103B66] text-white py-12 sm:py-16">
         <Container>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 flex items-center flex-wrap gap-3">
-            <Calculator className="w-8 h-8 shrink-0" />
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 flex items-center flex-wrap gap-2 sm:gap-3">
+            <Calculator className="w-6 h-6 sm:w-8 sm:h-8 shrink-0" />
             Water Capacity Calculator
           </h1>
-          <p className="text-[#B8C5D0]">
+          <p className="text-[#B8C5D0] text-sm sm:text-base">
             Estimate your water storage requirements based on your specific needs
           </p>
         </Container>
       </div>
 
-      <Container className="py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <Container className="py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Calculator Form */}
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <h2 className="text-xl font-bold text-[#102A43] mb-6">Enter Your Requirements</h2>
+          <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8">
+            <h2 className="text-lg sm:text-xl font-bold text-[#102A43] mb-4 sm:mb-6">Enter Your Requirements</h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* Use Type */}
               <div>
                 <Label htmlFor="useType">Intended Use</Label>
@@ -81,7 +81,7 @@ export default function CalculatorPage() {
                   id="useType"
                   value={useType}
                   onChange={(e) => setUseType(e.target.value as UseType)}
-                  className="w-full h-11 mt-2 px-4 rounded-md border border-[#DCE4EA] bg-white text-[#17212B] focus:outline-none focus:ring-2 focus:ring-[#0F9D9A]"
+                  className="w-full h-10 sm:h-11 mt-2 px-3.5 sm:px-4 rounded-md border border-[#DCE4EA] bg-white text-[#17212B] focus:outline-none focus:ring-2 focus:ring-[#0F9D9A] text-sm sm:text-base"
                 >
                   <option value="household">Household</option>
                   <option value="agriculture">Agriculture</option>
@@ -188,12 +188,12 @@ export default function CalculatorPage() {
               </div>
 
               {/* Rainwater Harvesting Inputs */}
-              <div className="border-t border-[#DCE4EA] pt-6">
-                <h3 className="font-semibold text-[#17212B] mb-4 flex items-center">
+              <div className="border-t border-[#DCE4EA] pt-4 sm:pt-6">
+                <h3 className="font-semibold text-[#17212B] mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
                   <Droplets className="mr-2 w-4 h-4 text-[#0F9D9A]" />
                   Rainwater Collection (Optional)
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
                     <Label htmlFor="rainfall">Average Rainfall (mm)</Label>
                     <Input
@@ -241,7 +241,7 @@ export default function CalculatorPage() {
                   id="unit"
                   value={outputUnit}
                   onChange={(e) => setOutputUnit(e.target.value as OutputUnit)}
-                  className="w-full h-11 mt-2 px-4 rounded-md border border-[#DCE4EA] bg-white text-[#17212B] focus:outline-none focus:ring-2 focus:ring-[#0F9D9A]"
+                  className="w-full h-10 sm:h-11 mt-2 px-3.5 sm:px-4 rounded-md border border-[#DCE4EA] bg-white text-[#17212B] focus:outline-none focus:ring-2 focus:ring-[#0F9D9A] text-sm sm:text-base"
                 >
                   <option value="litres">Litres (L)</option>
                   <option value="cubic-metres">Cubic Metres (m³)</option>
@@ -256,59 +256,59 @@ export default function CalculatorPage() {
           </div>
 
           {/* Results */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {result ? (
               <>
-                <div className="bg-white rounded-lg shadow-sm p-8">
-                  <h2 className="text-xl font-bold text-[#102A43] mb-6 flex items-center">
-                    <Calculator className="mr-2 w-6 h-6 text-[#0F9D9A]" />
+                <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8">
+                  <h2 className="text-lg sm:text-xl font-bold text-[#102A43] mb-4 sm:mb-6 flex items-center">
+                    <Calculator className="mr-2 w-5 h-5 sm:w-6 sm:h-6 text-[#0F9D9A]" />
                     Calculation Results
                   </h2>
 
-                  <div className="space-y-4">
-                    <div className="bg-[#F3F6F8] rounded-lg p-4">
-                      <p className="text-sm text-[#526575] mb-1">Estimated Daily Demand</p>
-                      <p className="text-2xl font-bold text-[#102A43]">
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="bg-[#F3F6F8] rounded-lg p-3 sm:p-4">
+                      <p className="text-xs sm:text-sm text-[#526575] mb-1">Estimated Daily Demand</p>
+                      <p className="text-xl sm:text-2xl font-bold text-[#102A43]">
                         {result.dailyDemand.toLocaleString()} {getUnitLabel(result.unit)}
                       </p>
                     </div>
 
-                    <div className="bg-[#0F9D9A] bg-opacity-10 rounded-lg p-4 border-2 border-[#0F9D9A]">
-                      <p className="text-sm text-[#526575] mb-1">Recommended Storage Capacity</p>
-                      <p className="text-3xl font-bold text-[#0F9D9A]">
+                    <div className="bg-[#0F9D9A] bg-opacity-10 rounded-lg p-3 sm:p-4 border-2 border-[#0F9D9A]">
+                      <p className="text-xs sm:text-sm text-[#526575] mb-1">Recommended Storage Capacity</p>
+                      <p className="text-2xl sm:text-3xl font-bold text-[#0F9D9A]">
                         {result.recommendedCapacity.toLocaleString()} {getUnitLabel(result.unit)}
                       </p>
-                      <p className="text-sm text-[#526575] mt-2">
+                      <p className="text-xs sm:text-sm text-[#526575] mt-2">
                         Based on {result.autonomyDays} days of autonomy
                       </p>
                     </div>
 
                     {result.rainwaterEstimate && (
-                      <div className="bg-[#F3F6F8] rounded-lg p-4">
-                        <p className="text-sm text-[#526575] mb-1 flex items-center">
-                          <Droplets className="mr-1 w-4 h-4 text-[#0F9D9A]" />
+                      <div className="bg-[#F3F6F8] rounded-lg p-3 sm:p-4">
+                        <p className="text-xs sm:text-sm text-[#526575] mb-1 flex items-center">
+                          <Droplets className="mr-1 w-3 h-3 sm:w-4 sm:h-4 text-[#0F9D9A]" />
                           Estimated Rainwater Collection
                         </p>
-                        <p className="text-xl font-bold text-[#102A43]">
+                        <p className="text-lg sm:text-xl font-bold text-[#102A43]">
                           {result.rainwaterEstimate.toLocaleString()} {getUnitLabel(result.unit)}
                         </p>
                       </div>
                     )}
                   </div>
 
-                  <div className="mt-6 p-4 bg-[#F3F6F8] rounded-lg">
-                    <h3 className="font-semibold text-[#17212B] mb-2 flex items-center">
-                      <Info className="mr-2 w-4 h-4 text-[#0F9D9A]" />
+                  <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-[#F3F6F8] rounded-lg">
+                    <h3 className="font-semibold text-[#17212B] mb-2 flex items-center text-sm sm:text-base">
+                      <Info className="mr-2 w-3 h-3 sm:w-4 sm:h-4 text-[#0F9D9A]" />
                       Assumptions
                     </h3>
-                    <ul className="text-sm text-[#526575] space-y-1">
+                    <ul className="text-xs sm:text-sm text-[#526575] space-y-1">
                       {result.assumptions.map((assumption: string, index: number) => (
                         <li key={index}>• {assumption}</li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="mt-6 text-xs text-[#526575]">
+                  <div className="mt-4 sm:mt-6 text-xs text-[#526575]">
                     <p>
                       <strong>Disclaimer:</strong> This calculator provides estimates based on typical
                       consumption patterns. Actual requirements may vary based on specific conditions,
@@ -317,33 +317,33 @@ export default function CalculatorPage() {
                     </p>
                   </div>
 
-                  <Link href={routes.quote} className="mt-6 block">
+                  <Link href={routes.quote} className="mt-4 sm:mt-6 block">
                     <Button variant="primary" size="lg" className="w-full">
                       Request a Quote Based on These Results
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                      <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                   </Link>
                 </div>
 
                 {/* Recommended Products */}
                 {recommendedProducts.length > 0 && (
-                  <div className="bg-white rounded-lg shadow-sm p-8">
-                    <h2 className="text-xl font-bold text-[#102A43] mb-6">
+                  <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8">
+                    <h2 className="text-lg sm:text-xl font-bold text-[#102A43] mb-4 sm:mb-6">
                       Recommended Tanks
                     </h2>
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-4">
                       {recommendedProducts.map((product) => (
                         <div
                           key={product.id}
-                          className="border border-[#DCE4EA] rounded-lg p-4 hover:shadow-md transition-shadow"
+                          className="border border-[#DCE4EA] rounded-lg p-3 sm:p-4 hover:shadow-md transition-shadow"
                         >
                           <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-semibold text-[#17212B]">{product.name}</h3>
-                            <span className="text-[#0F9D9A] font-semibold">
+                            <h3 className="font-semibold text-[#17212B] text-sm sm:text-base line-clamp-2">{product.name}</h3>
+                            <span className="text-[#0F9D9A] font-semibold text-sm sm:text-base">
                               {product.capacityLiters.toLocaleString()}L
                             </span>
                           </div>
-                          <p className="text-sm text-[#526575] mb-3">{product.shortDescription}</p>
+                          <p className="text-xs sm:text-sm text-[#526575] mb-2 sm:mb-3">{product.shortDescription}</p>
                           <Link href={`${routes.products}/${product.slug}`}>
                             <Button variant="outline" size="sm" className="w-full">
                               View Details
@@ -356,12 +356,12 @@ export default function CalculatorPage() {
                 )}
               </>
             ) : (
-              <div className="bg-white rounded-lg shadow-sm p-12 text-center">
-                <Calculator className="w-16 h-16 text-[#526575] mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-[#17212B] mb-2">
+              <div className="bg-white rounded-lg shadow-sm p-8 sm:p-12 text-center">
+                <Calculator className="w-12 h-12 sm:w-16 sm:h-16 text-[#526575] mx-auto mb-3 sm:mb-4" />
+                <h3 className="text-lg sm:text-xl font-semibold text-[#17212B] mb-2">
                   Enter Your Requirements
                 </h3>
-                <p className="text-[#526575]">
+                <p className="text-sm sm:text-base text-[#526575]">
                   Fill in the form to calculate your water storage needs
                 </p>
               </div>

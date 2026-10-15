@@ -8,26 +8,26 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#F4F7FA]">
       {/* Header */}
-      <div className="bg-[#103B66] text-white py-12 md:py-16 lg:py-20">
+      <div className="bg-[#103B66] text-white py-12 sm:py-16 md:py-20">
         <Container>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">About Reliance Tanks</h1>
-          <p className="text-[#B8C5D0] text-lg">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">About Reliance Tanks</h1>
+          <p className="text-[#B8C5D0] text-sm sm:text-base sm:text-lg">
             Engineering reliable water storage solutions for diverse applications
           </p>
         </Container>
       </div>
 
-      <Container className="py-12 md:py-16 lg:py-20 space-y-8">
+      <Container className="py-8 sm:py-12 md:py-16 lg:py-20 space-y-6 sm:space-y-8">
         {/* Introduction */}
-        <div className="bg-white rounded-lg shadow-sm p-6 md:p-8 min-w-0">
-          <h2 className="text-2xl font-bold text-[#103B66] mb-6 md:mb-8">Our Mission</h2>
-          <p className="text-[#526575] mb-4 leading-relaxed">
+        <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8 min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#103B66] mb-4 sm:mb-6 md:mb-8">Our Mission</h2>
+          <p className="text-sm sm:text-base text-[#526575] mb-3 sm:mb-4 leading-relaxed">
             Reliance Tanks is dedicated to providing reliable, high-quality water storage solutions for
             industrial, agricultural, commercial, and residential applications. We focus on engineering
             excellence, material quality, and customer service to deliver storage systems that meet the
             diverse needs of our clients.
           </p>
-          <p className="text-[#526575] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#526575] leading-relaxed">
             Our approach combines practical engineering with an understanding of real-world water
             storage challenges. Whether you need a small residential tank or a large industrial storage
             system, we provide solutions designed for durability, reliability, and long-term value.
@@ -35,7 +35,7 @@ export default function AboutPage() {
         </div>
 
         {/* Values */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
             {
               icon: Target,
@@ -58,20 +58,20 @@ export default function AboutPage() {
               description: 'Water storage supports water conservation and resource management initiatives.',
             },
           ].map((value) => (
-            <div key={value.title} className="bg-white rounded-lg shadow-sm p-6 flex flex-col h-full min-w-0">
-              <div className="w-12 h-12 bg-[#0D9488]/10 rounded-lg flex items-center justify-center mb-4 shrink-0">
-                <value.icon className="w-6 h-6 text-[#0D9488]" />
+            <div key={value.title} className="bg-white rounded-lg shadow-sm p-4 sm:p-6 flex flex-col h-full min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0D9488]/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#0D9488]" />
               </div>
-              <h3 className="font-semibold text-[#172B3A] mb-2 break-words">{value.title}</h3>
-              <p className="text-sm text-[#526575] leading-relaxed break-words">{value.description}</p>
+              <h3 className="font-semibold text-[#172B3A] mb-2 break-words text-sm sm:text-base">{value.title}</h3>
+              <p className="text-xs sm:text-sm text-[#526575] leading-relaxed break-words">{value.description}</p>
             </div>
           ))}
         </div>
 
         {/* Sectors */}
-        <div className="bg-white rounded-lg shadow-sm p-6 md:p-8 min-w-0">
-          <h2 className="text-2xl font-bold text-[#103B66] mb-6 md:mb-8">Sectors We Serve</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8 min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#103B66] mb-4 sm:mb-6 md:mb-8">Sectors We Serve</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {[
               {
                 title: 'Industrial',
@@ -91,21 +91,21 @@ export default function AboutPage() {
               },
             ].map((sector) => (
               <div key={sector.title} className="min-w-0">
-                <h3 className="font-semibold text-[#172B3A] mb-2 break-words">{sector.title}</h3>
-                <p className="text-sm text-[#526575] leading-relaxed break-words">{sector.description}</p>
+                <h3 className="font-semibold text-[#172B3A] mb-2 break-words text-sm sm:text-base">{sector.title}</h3>
+                <p className="text-xs sm:text-sm text-[#526575] leading-relaxed break-words">{sector.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Water Security Context */}
-        <div className="bg-white rounded-lg shadow-sm p-6 md:p-8 min-w-0">
-          <h2 className="text-2xl font-bold text-[#103B66] mb-6 md:mb-8">Water Storage & Sustainability</h2>
-          <p className="text-[#526575] mb-4 leading-relaxed">
+        <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 md:p-8 min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#103B66] mb-4 sm:mb-6 md:mb-8">Water Storage & Sustainability</h2>
+          <p className="text-sm sm:text-base text-[#526575] mb-3 sm:mb-4 leading-relaxed">
             Reliable water storage is increasingly important in the context of water security, climate
             variability, and growing demand. Storage solutions enable:
           </p>
-          <ul className="space-y-3 text-[#526575]">
+          <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-[#526575]">
             <li className="flex items-start gap-2">
               <span className="text-[#0D9488] shrink-0">•</span>
               <span>Rainwater harvesting and water conservation</span>
@@ -126,12 +126,12 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-[#103B66] text-white rounded-lg p-6 md:p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Discuss Your Project?</h2>
-          <p className="text-[#B8C5D0] mb-6">
+        <div className="bg-[#103B66] text-white rounded-lg p-4 sm:p-6 md:p-8 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Ready to Discuss Your Project?</h2>
+          <p className="text-[#B8C5D0] mb-4 sm:mb-6 text-sm sm:text-base">
             Contact us to discuss your water storage requirements and get a personalized quote
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link href={routes.quote}>
               <Button variant="primary" size="lg" className="w-full sm:w-auto">
                 Request a Quote

@@ -8,6 +8,7 @@ import { Input } from '../../components/ui/input'
 import type { ProductCategory, Material, Placement, UsageType } from '../../types/product'
 import { ProductGrid } from '../../components/products/product-grid'
 import { Container } from '../../components/layout/container'
+import { PricingTable } from '../../components/pricing/pricing-table'
 
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -97,7 +98,7 @@ export default function ProductsPage() {
             <div className="border-t border-[#D9E2EC] pt-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="min-w-0">
-                  <label htmlFor="filter-category" className="block text-sm font-medium text-[#172B3A] mb-2">Category</label>
+                  <label htmlFor="filter-category" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Category</label>
                   <select
                     id="filter-category"
                     value={selectedCategory}
@@ -115,7 +116,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <label htmlFor="filter-material" className="block text-sm font-medium text-[#172B3A] mb-2">Material</label>
+                  <label htmlFor="filter-material" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Material</label>
                   <select
                     id="filter-material"
                     value={selectedMaterial}
@@ -132,7 +133,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <label htmlFor="filter-placement" className="block text-sm font-medium text-[#172B3A] mb-2">Placement</label>
+                  <label htmlFor="filter-placement" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Placement</label>
                   <select
                     id="filter-placement"
                     value={selectedPlacement}
@@ -147,7 +148,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <label htmlFor="filter-usage" className="block text-sm font-medium text-[#172B3A] mb-2">Intended Use</label>
+                  <label htmlFor="filter-usage" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Intended Use</label>
                   <select
                     id="filter-usage"
                     value={selectedUsage}
@@ -184,6 +185,14 @@ export default function ProductsPage() {
         ) : (
           <ProductGrid products={filteredProducts} />
         )}
+
+        {/* 2026 Price List */}
+        <div className="mt-12 md:mt-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-6 md:mb-8 text-center">
+            2026 Price List
+          </h2>
+          <PricingTable />
+        </div>
       </Container>
     </div>
   )
