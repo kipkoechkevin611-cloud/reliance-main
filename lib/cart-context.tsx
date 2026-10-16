@@ -81,12 +81,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
 
   const getTotal = () => {
-    // Only calculate total for verified prices
-    const verifiedItems = items.filter((item) => item.product.priceStatus === 'verified' && item.product.price)
-    return verifiedItems.reduce((sum, item) => sum + (item.product.price || 0) * item.quantity, 0)
+    // Calculate total for items with prices (verified or reference)
+    const pricedItems = items.filter((item) => item.product.price)
+    return pricedItems.reduce((sum, item) => sum + (item.product.price || 0) * item.quantity, 0)
   }
 
-  const isQuotationOnly = items.some((item) => item.product.priceStatus !== 'verified')
+  const isQuotationOnly = items.some((item) => !item.product.price)
 
   return (
     <CartContext.Provider
