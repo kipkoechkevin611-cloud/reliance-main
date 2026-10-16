@@ -69,7 +69,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
           </div>
 
           {/* Product Info */}
-          <div className="min-w-0">
+          <div className="min-w-0 flex flex-col">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#103B66] mb-3 sm:mb-4 break-words">{product.name}</h1>
             <p className="text-sm sm:text-base text-[#526575] mb-4 sm:mb-6 leading-relaxed break-words">{product.description}</p>
 
@@ -79,7 +79,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
                   <Package className="w-4 h-4 sm:w-5 sm:h-5 text-[#0D9488] shrink-0" />
                   <span className="text-xs sm:text-sm text-[#526575]">Capacity</span>
                 </div>
-                <p className="text-xl sm:text-2xl font-bold text-[#103B66]">
+                <p className="text-xl sm:text-2xl font-bold text-[#103B66] break-words">
                   {product.capacityLiters.toLocaleString()}L
                 </p>
               </div>
@@ -95,7 +95,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             {/* Quantity and Add to Cart */}
             <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6">
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
-                <span className="font-medium text-[#172B3A] text-sm sm:text-base">Quantity:</span>
+                <span className="font-medium text-[#172B3A] text-sm sm:text-base shrink-0">Quantity:</span>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleQuantityChange(-1)}
@@ -135,7 +135,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
               </div>
             </div>
 
-            <div className="text-xs sm:text-sm text-[#526575]">
+            <div className="text-xs sm:text-sm text-[#526575] mt-auto">
               <p>
                 <span className="font-medium">Availability:</span>{' '}
                 <span className="capitalize">{product.availability.replace('-', ' ')}</span>

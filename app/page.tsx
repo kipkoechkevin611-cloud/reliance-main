@@ -71,11 +71,11 @@ export default function HomePage() {
             {features.map((feature) => {
               const Icon = getIcon(feature.icon)
               return (
-                <div key={feature.id} className="p-5 sm:p-6 flex flex-col h-full items-start gap-3 sm:gap-4 min-w-0 bg-white border border-[#D9E2EC] rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-[#0D9488]/10 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon className="w-6 h-6 text-[#0D9488]" />
+                <div key={feature.id} className="p-6 sm:p-8 flex flex-col h-full items-start gap-4 sm:gap-5 min-w-0 bg-white border border-[#D9E2EC] rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-14 h-14 bg-[#0D9488]/10 rounded-lg flex items-center justify-center shrink-0">
+                    <Icon className="w-7 h-7 text-[#0D9488]" />
                   </div>
-                  <h3 className="font-semibold text-[#172B3A] text-base sm:text-lg break-words">{feature.title}</h3>
+                  <h3 className="font-semibold text-[#172B3A] text-base sm:text-lg leading-tight break-words">{feature.title}</h3>
                   <p className="text-sm sm:text-base text-[#526575] leading-relaxed break-words">{feature.description}</p>
                 </div>
               )
@@ -126,13 +126,13 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.link}
-                className="bg-white rounded-lg p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full min-w-0 border border-[#D9E2EC]"
+                className="bg-white rounded-lg p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full min-w-0 border border-[#D9E2EC]"
               >
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0D9488]/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-[#0D9488]/20 transition-colors shrink-0">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0D9488]/10 rounded-lg flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-[#0D9488]/20 transition-colors shrink-0">
                   <category.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#0D9488]" />
                 </div>
-                <h3 className="font-semibold text-[#172B3A] mb-2 text-base sm:text-lg break-words">{category.title}</h3>
-                <p className="text-sm sm:text-base text-[#526575] mb-3 sm:mb-4 leading-relaxed break-words flex-1">{category.description}</p>
+                <h3 className="font-semibold text-[#172B3A] mb-2 sm:mb-3 text-base sm:text-lg leading-tight break-words">{category.title}</h3>
+                <p className="text-sm sm:text-base text-[#526575] mb-4 sm:mb-5 leading-relaxed break-words flex-1">{category.description}</p>
                 <span className="text-[#0D9488] text-sm sm:text-base font-medium inline-flex items-center mt-auto group-hover:translate-x-1 transition-transform">
                   View Category →
                 </span>
@@ -155,11 +155,11 @@ export default function HomePage() {
               { title: 'Commercial', icon: Factory, description: 'Office buildings, apartment complexes, retail' },
               { title: 'Industrial', icon: Wrench, description: 'Manufacturing, processing, industrial facilities' },
             ].map((app) => (
-              <div key={app.title} className="bg-white rounded-lg p-5 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col h-full min-w-0">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#F4F7FA] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shrink-0">
+              <div key={app.title} className="bg-white rounded-lg p-6 sm:p-8 text-center shadow-sm hover:shadow-md transition-shadow flex flex-col h-full min-w-0">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#F4F7FA] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-5 shrink-0">
                   <app.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#0D9488]" />
                 </div>
-                <h3 className="font-semibold text-[#172B3A] mb-2 text-base sm:text-lg break-words">{app.title}</h3>
+                <h3 className="font-semibold text-[#172B3A] mb-2 sm:mb-3 text-base sm:text-lg leading-tight break-words">{app.title}</h3>
                 <p className="text-sm sm:text-base text-[#526575] leading-relaxed break-words">{app.description}</p>
               </div>
             ))}
@@ -192,13 +192,13 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white rounded-lg p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full min-w-0">
-                <div className="flex items-center mb-3 sm:mb-4 gap-1">
+              <div key={testimonial.id} className="bg-white rounded-lg p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full min-w-0">
+                <div className="flex items-center mb-4 sm:mb-5 gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <CheckCircle2 key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-[#0D9488] fill-[#0D9488] shrink-0" />
                   ))}
                 </div>
-                <p className="text-[#526575] text-sm sm:text-base mb-3 sm:mb-4 italic leading-relaxed break-words flex-1">
+                <p className="text-[#526575] text-sm sm:text-base mb-4 sm:mb-5 italic leading-relaxed break-words flex-1">
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
                 <div className="mt-auto">
