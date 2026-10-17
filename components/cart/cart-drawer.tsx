@@ -217,21 +217,33 @@ Please confirm stock availability and delivery timeline.`
 
             {/* Drawer Footer */}
             {items.length > 0 && (
-              <div className="border-t border-[#D9E2EC] p-4 sm:p-6 space-y-3 sm:space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-base sm:text-lg font-semibold text-[#172B3A]">Total</span>
-                  <span className="text-lg sm:text-xl font-bold text-[#0D9488]">
-                    {typeof getTotal() === 'number' ? `KSh ${getTotal().toLocaleString()}` : 'Quote Required'}
-                  </span>
+              <div className="border-t border-[#D9E2EC] p-4 sm:p-6 space-y-3 sm:space-y-4 bg-[#F4F7FA]">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex justify-between items-center text-sm sm:text-base">
+                    <span className="text-[#526575]">Subtotal ({itemCount} items)</span>
+                    <span className="font-medium text-[#172B3A]">
+                      {typeof getTotal() === 'number' ? `KSh ${getTotal().toLocaleString()}` : 'Quote Required'}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm sm:text-base">
+                    <span className="text-[#526575]">Delivery</span>
+                    <span className="font-medium text-[#172B3A]">Calculated at checkout</span>
+                  </div>
+                  <div className="border-t border-[#D9E2EC] pt-2 sm:pt-3 flex justify-between items-center">
+                    <span className="text-lg sm:text-xl font-bold text-[#172B3A]">Total</span>
+                    <span className="text-xl sm:text-2xl font-bold text-[#0D9488]">
+                      {typeof getTotal() === 'number' ? `KSh ${getTotal().toLocaleString()}` : 'Quote Required'}
+                    </span>
+                  </div>
                 </div>
                 {isQuotationOnly && (
-                  <p className="text-xs sm:text-sm text-[#526575] italic">
+                  <p className="text-xs sm:text-sm text-[#526575] italic bg-white p-2 rounded">
                     * Some items require quotation. Final price will be confirmed.
                   </p>
                 )}
                 <Button
                   onClick={handleWhatsAppOrder}
-                  className="w-full"
+                  className="w-full bg-[#0D9488] hover:bg-[#0B7A70] text-white font-semibold"
                   size="lg"
                 >
                   <MessageCircle className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -240,7 +252,7 @@ Please confirm stock availability and delivery timeline.`
                 <Button
                   onClick={clearCart}
                   variant="ghost"
-                  className="w-full"
+                  className="w-full text-[#526575] hover:text-red-600"
                 >
                   Clear Cart
                 </Button>

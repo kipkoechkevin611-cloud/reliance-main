@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Droplets, Plus, Minus } from 'lucide-react'
+import { Droplets, Plus, Minus, ShoppingBag } from 'lucide-react'
 import { routes } from '../../lib/routes'
 import { Button } from '../ui/button'
 import { useCart } from '../../lib/cart-context'
@@ -37,14 +37,14 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
         return (
           <article
             key={product.id}
-            className="bg-white rounded-lg border border-[#D9E2EC] shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full min-w-0"
+            className="bg-white rounded-lg border border-[#D9E2EC] shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full min-w-0 relative"
           >
             <div className="aspect-[4/3] bg-[#F4F7FA] flex items-center justify-center p-4 sm:p-6 min-h-0 relative">
               {product.images && product.images.length > 0 ? (
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="max-w-[60%] max-h-[60%] w-auto h-auto object-contain"
+                  className="max-w-[45%] max-h-[45%] w-auto h-auto object-contain"
                 />
               ) : (
                 <Droplets className="w-12 h-12 sm:w-16 sm:h-16 text-[#526575] shrink-0" />
@@ -95,17 +95,23 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
                     View Details
                   </Button>
                 </Link>
-                <Button
-                  variant="primary"
-                  size="md"
-                  textSize="sm"
-                  className="w-full min-w-0"
-                  type="button"
-                  onClick={() => addItem(product, quantity)}
-                >
-                  <Plus className="mr-1 w-4 h-4 shrink-0" />
-                  Add to Cart
-                </Button>
+                <div className="flex items-center justify-center">
+                  <Button
+                    variant="primary"
+                    size="md"
+                    textSize="sm"
+                    className="w-full min-w-0 bg-[#0D9488] hover:bg-[#0B7A70] text-white font-semibold"
+                    type="button"
+                    onClick={() => addItem(product, quantity)}
+                  >
+                    <Plus className="mr-1 w-4 h-4 shrink-0" />
+                    Add to Cart
+                  </Button>
+                </div>
+              </div>
+              {/* Hanging Cart Icon at Bottom Left */}
+              <div className="absolute bottom-4 left-4 bg-[#0D9488] text-white p-2 rounded-full shadow-md hover:bg-[#0B7A70] transition-colors cursor-pointer">
+                <ShoppingBag className="w-5 h-5" />
               </div>
             </div>
           </article>
