@@ -2,10 +2,21 @@ import { Product } from '@/types/product'
 
 // 2026 Price List - Reliance Tank Ltd
 const prices2026: Record<number, number> = {
+  50: 3440,
+  75: 4400,
+  100: 2250,
+  120: 3040,
+  200: 5500,
+  230: 4960,
+  240: 5200,
+  300: 7500,
   500: 2250,
   1000: 5500,
+  1350: 9500,
   1500: 7500,
+  1900: 12500,
   2000: 10500,
+  2500: 13500,
   3000: 14500,
   3500: 18500,
   4000: 22500,
@@ -13,6 +24,8 @@ const prices2026: Record<number, number> = {
   6000: 26500,
   8000: 32500,
   10000: 45500,
+  12000: 65000,
+  15000: 85000,
   16000: 98500,
   20000: 147600,
   24000: 194000,
@@ -2791,7 +2804,9 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getFeaturedProducts(): Product[] {
-  return products.filter((p) => p.category === 'vertical')
+  return products
+    .filter((p) => p.category === 'vertical')
+    .sort((a, b) => a.capacityLiters - b.capacityLiters)
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {

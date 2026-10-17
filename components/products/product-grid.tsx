@@ -39,12 +39,12 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
             key={product.id}
             className="bg-white rounded-lg border border-[#D9E2EC] shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full min-w-0 relative"
           >
-            <div className="aspect-[4/3] bg-[#F4F7FA] flex items-center justify-center p-4 sm:p-6 min-h-0 relative">
+            <div className="aspect-[4/3] bg-[#F4F7FA] flex items-center justify-center p-2 sm:p-4 min-h-0 relative">
               {product.images && product.images.length > 0 ? (
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="max-w-[45%] max-h-[45%] w-auto h-auto object-contain"
+                  className="max-w-[95%] max-h-[95%] w-full h-full object-contain"
                 />
               ) : (
                 <Droplets className="w-12 h-12 sm:w-16 sm:h-16 text-[#526575] shrink-0" />
@@ -110,9 +110,13 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
                 </div>
               </div>
               {/* Hanging Cart Icon at Bottom Left */}
-              <div className="absolute bottom-4 left-4 bg-[#0D9488] text-white p-2 rounded-full shadow-md hover:bg-[#0B7A70] transition-colors cursor-pointer">
+              <button
+                onClick={() => addItem(product, quantity)}
+                className="absolute bottom-4 left-4 bg-[#0D9488] text-white p-2 rounded-full shadow-md hover:bg-[#0B7A70] transition-colors cursor-pointer"
+                aria-label="Add to cart"
+              >
                 <ShoppingBag className="w-5 h-5" />
-              </div>
+              </button>
             </div>
           </article>
         )
