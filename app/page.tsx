@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ArrowRight, Calculator, CheckCircle2, Droplets, Factory, Home, Trees, Wrench } from 'lucide-react'
+import { ArrowRight, Calculator, CheckCircle2, Droplets, Factory, Home, Phone, Trees, Wrench } from 'lucide-react'
 import { routes } from '../lib/routes'
+import { siteConfig } from '../lib/site-config'
 import { features } from '../data/features'
 import { getFeaturedProducts } from '../data/products'
 import { testimonials } from '../data/testimonials'
@@ -47,6 +48,15 @@ export default function HomePage() {
                   Get Free Quote
                 </Button>
               </Link>
+            </div>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <Phone className="w-6 h-6 sm:w-7 sm:h-7 text-[#0D9488]" />
+              <a
+                href={`tel:${siteConfig.contact.phone}`}
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white hover:text-[#0D9488] transition-colors"
+              >
+                {siteConfig.contact.phoneDisplay}
+              </a>
             </div>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>

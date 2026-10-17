@@ -2806,7 +2806,7 @@ export function getProductsByCategory(category: string): Product[] {
 export function getFeaturedProducts(): Product[] {
   return products
     .filter((p) => p.category === 'vertical')
-    .sort((a, b) => a.capacityLiters - b.capacityLiters)
+    .sort((a, b) => b.capacityLiters - a.capacityLiters)
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {
