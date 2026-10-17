@@ -6,6 +6,10 @@ export type ProductCategory =
   | 'agricultural'
   | 'rainwater-harvesting'
   | 'custom'
+  | 'sanitation'
+  | 'road-safety'
+  | 'lifestyle'
+  | 'bins'
 
 export type Material = 'steel' | 'polyethylene' | 'concrete' | 'fiberglass' | 'custom'
 
@@ -18,7 +22,7 @@ export type UsageType =
   | 'residential'
   | 'rainwater-harvesting'
 
-export type PriceStatus = 'verified' | 'reference' | 'quote-required'
+export type PriceStatus = 'verified' | 'reference' | 'quote-required' | 'wholesale'
 
 export interface Product {
   id: string

@@ -64,13 +64,12 @@ export default function ProductsPage() {
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8 min-w-0">
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <div className="flex-1 relative min-w-0">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#526575] pointer-events-none" />
               <Input
                 type="text"
                 placeholder="Search products by name, capacity, or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-11"
+                className="text-center"
               />
             </div>
             <Button

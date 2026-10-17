@@ -44,7 +44,7 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                  className="max-w-[60%] max-h-[60%] w-auto h-auto object-contain"
                 />
               ) : (
                 <Droplets className="w-12 h-12 sm:w-16 sm:h-16 text-[#526575] shrink-0" />

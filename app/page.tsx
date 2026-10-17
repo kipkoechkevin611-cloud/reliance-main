@@ -17,36 +17,54 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#103B66] via-[#0A2848] to-[#103B66] text-white py-24 md:py-32 lg:py-40 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#0D9488] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0D9488] rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+      <section className="relative bg-gradient-to-br from-[#0D9488] via-[#103B66] to-[#0A2848] text-white py-24 md:py-32 lg:py-40 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#0D9488] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#103B66] rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#0D9488]/30 rounded-full blur-2xl"></div>
         </div>
         <Container>
-          <div className="max-w-5xl min-w-0 relative z-10">
-            <div className="mb-8 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-              <Droplets className="w-5 h-5 text-[#0D9488]" />
-              <span className="text-sm font-medium text-white">Trusted Water Storage Solutions</span>
+          <div className="max-w-6xl min-w-0 relative z-10 text-center">
+            <div className="mb-8 inline-flex items-center gap-2 bg-white/15 backdrop-blur-md px-6 py-3 rounded-full border border-white/30 mx-auto">
+              <Droplets className="w-6 h-6 text-[#0D9488]" />
+              <span className="text-base font-semibold text-white">Kenya's #1 Water Storage Solutions</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight break-words">
-              Reliable Water Storage Solutions for Every Need
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight break-words bg-gradient-to-r from-white via-[#E0F2FE] to-white bg-clip-text text-transparent">
+              Premium Water Storage for Every Application
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#B8C5D0] mb-12 leading-relaxed max-w-4xl">
-              Dependable water storage solutions for homes, farms, commercial developments, and industrial
-              facilities.
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#B8C5D0] mb-12 leading-relaxed max-w-4xl mx-auto">
+              From residential homes to industrial facilities, we deliver durable, reliable water storage solutions across Kenya.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center">
               <Link href={routes.products} className="flex-1 sm:flex-none">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto text-base md:text-lg px-8 py-4">
-                  Shop Tanks
+                <Button variant="primary" size="lg" className="w-full sm:w-auto text-base md:text-lg px-10 py-4 bg-[#0D9488] hover:bg-[#0B7D73] border-0">
+                  Explore Products
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href={routes.quote} className="flex-1 sm:flex-none">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-[#103B66] text-base md:text-lg px-8 py-4">
-                  Request a Quote
+                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/50 text-white hover:bg-white/10 text-base md:text-lg px-10 py-4">
+                  Get Free Quote
                 </Button>
               </Link>
+            </div>
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-[#0D9488] mb-1">500L+</div>
+                <div className="text-sm text-[#B8C5D0]">Tank Capacity</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-[#0D9488] mb-1">15+</div>
+                <div className="text-sm text-[#B8C5D0]">Years Experience</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-[#0D9488] mb-1">1000+</div>
+                <div className="text-sm text-[#B8C5D0]">Happy Clients</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-[#0D9488] mb-1">Nationwide</div>
+                <div className="text-sm text-[#B8C5D0]">Delivery</div>
+              </div>
             </div>
           </div>
         </Container>
