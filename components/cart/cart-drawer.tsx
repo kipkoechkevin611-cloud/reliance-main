@@ -51,6 +51,8 @@ Please confirm stock availability and delivery timeline.`
     const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodedMessage}`
 
     window.open(whatsappUrl, '_blank')
+    clearCart()
+    setIsOpen(false)
   }
 
   return (
