@@ -110,6 +110,10 @@ export default function ProductsPage() {
                     <option value="underground">Underground Tanks</option>
                     <option value="industrial">Industrial Tanks</option>
                     <option value="agricultural">Agricultural Tanks</option>
+                    <option value="sanitation">Sanitation</option>
+                    <option value="road-safety">Road Safety</option>
+                    <option value="lifestyle">Lifestyle</option>
+                    <option value="bins">Bins</option>
                     <option value="custom">Custom Fabrication</option>
                   </select>
                 </div>

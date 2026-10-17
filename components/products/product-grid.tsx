@@ -19,8 +19,8 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
 
   const gridClass =
     columns === 'featured'
-      ? 'grid grid-cols-1 sm:grid-cols-2 gap-6'
-      : 'grid grid-cols-1 sm:grid-cols-2 gap-6'
+      ? 'grid grid-cols-2 gap-4 sm:gap-6'
+      : 'grid grid-cols-2 gap-4 sm:gap-6'
 
   const handleQuantityChange = (productId: string, delta: number) => {
     setQuantities((prev) => {

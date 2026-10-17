@@ -8,5 +8,5 @@ interface FeaturedProductsProps {
 }
 
 export function FeaturedProducts({ products }: FeaturedProductsProps) {
-  return <ProductGrid products={products.slice(0, 6)} columns="featured" />
+  return <ProductGrid products={products} columns="featured" />
 }
