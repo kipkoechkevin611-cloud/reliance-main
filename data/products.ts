@@ -2151,7 +2151,7 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getFeaturedProducts(): Product[] {
-  return products.filter((p) => p.featured)
+  return products.filter((p) => p.category === 'vertical')
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {

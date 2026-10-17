@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Calculator, CheckCircle2, Droplets, Factory, Home, Trees, Wrench } from 'lucide-react'
 import { routes } from '../lib/routes'
 import { features } from '../data/features'
-import { getFeaturedProducts, getVerticalTanks } from '../data/products'
+import { getFeaturedProducts } from '../data/products'
 import { testimonials } from '../data/testimonials'
 import { faqs } from '../data/faq'
 import { Button } from '../components/ui/button'
@@ -13,7 +13,6 @@ import { Container } from '../components/layout/container'
 
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
-  const verticalTanks = getVerticalTanks()
 
   return (
     <div className="flex flex-col">
@@ -54,7 +53,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 md:py-20 lg:py-24 bg-white">
+      <section className="py-20 md:py-24 lg:py-28 bg-white">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 md:mb-14 gap-4">
             <h2 className="text-3xl md:text-4xl font-bold text-[#103B66]">Featured Products</h2>
@@ -68,7 +67,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Reliance Tank */}
-      <section className="py-16 md:py-20 lg:py-24 bg-white">
+      <section className="py-20 md:py-24 lg:py-28 bg-white">
         <Container>
           <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Why Choose Reliance Tank?
@@ -91,7 +90,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
+      <section className="py-20 md:py-24 lg:py-28 bg-[#F4F7FA]">
         <Container>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Our Product Categories
@@ -149,7 +148,7 @@ export default function HomePage() {
       </section>
 
       {/* Applications */}
-      <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
+      <section className="py-20 md:py-24 lg:py-28 bg-[#F4F7FA]">
         <Container>
           <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Applications & Industries
@@ -174,7 +173,7 @@ export default function HomePage() {
       </section>
 
       {/* Quality Section */}
-      <section className="py-16 md:py-20 lg:py-24 bg-white">
+      <section className="py-20 md:py-24 lg:py-28 bg-white">
         <Container className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-10 md:mb-12">Quality & Engineering</h2>
           <p className="text-[#526575] mb-10 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
@@ -191,7 +190,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
+      <section className="py-20 md:py-24 lg:py-28 bg-[#F4F7FA]">
         <Container>
           <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             What Our Customers Say
@@ -221,7 +220,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-20 lg:py-24 bg-white">
+      <section className="py-20 md:py-24 lg:py-28 bg-white">
         <Container>
           <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Frequently Asked Questions
@@ -237,23 +236,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* All Vertical Tanks Section */}
-      <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
-        <Container>
-          <div className="text-center mb-12 md:mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-4 sm:mb-5">
-              Vertical Water Tanks
-            </h2>
-            <p className="text-[#526575] text-base sm:text-lg max-w-2xl mx-auto">
-              Complete range of vertical cylindrical water tanks for residential, agricultural, commercial, and industrial applications.
-            </p>
-          </div>
-          <ProductGrid products={verticalTanks.slice(0, 8)} columns="shop" />
-        </Container>
-      </section>
-
       {/* Final CTA */}
-      <section className="py-16 md:py-20 lg:py-24 bg-[#103B66] text-white">
+      <section className="py-20 md:py-24 lg:py-28 bg-[#103B66] text-white">
         <Container className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-10 break-words">
             Looking for the Right Water Storage Solution?
