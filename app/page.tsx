@@ -18,17 +18,21 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-[#103B66] text-white py-24 md:py-32 lg:py-40">
+      <section className="relative bg-gradient-to-br from-[#103B66] via-[#0A2848] to-[#103B66] text-white py-24 md:py-32 lg:py-40 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-[#0D9488] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0D9488] rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        </div>
         <Container>
-          <div className="max-w-5xl min-w-0">
-            <div className="mb-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+          <div className="max-w-5xl min-w-0 relative z-10">
+            <div className="mb-8 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
               <Droplets className="w-5 h-5 text-[#0D9488]" />
               <span className="text-sm font-medium text-white">Trusted Water Storage Solutions</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight break-words">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight break-words">
               Reliable Water Storage Solutions for Every Need
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#B8C5D0] mb-10 leading-relaxed max-w-4xl">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#B8C5D0] mb-12 leading-relaxed max-w-4xl">
               Dependable water storage solutions for homes, farms, commercial developments, and industrial
               facilities.
             </p>
@@ -52,7 +56,7 @@ export default function HomePage() {
       {/* Featured Products */}
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <Container>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 md:mb-10 gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 md:mb-14 gap-4">
             <h2 className="text-3xl md:text-4xl font-bold text-[#103B66]">Featured Products</h2>
             <Link href={routes.products} className="text-[#0D9488] font-medium inline-flex items-center hover:underline text-base sm:text-lg">
               View All Products
@@ -66,7 +70,7 @@ export default function HomePage() {
       {/* Why Choose Reliance Tank */}
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-8 md:mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Why Choose Reliance Tank?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -89,7 +93,7 @@ export default function HomePage() {
       {/* Featured Categories */}
       <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
         <Container>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#103B66] mb-8 md:mb-10 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Our Product Categories
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -147,7 +151,7 @@ export default function HomePage() {
       {/* Applications */}
       <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-8 md:mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Applications & Industries
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -172,8 +176,8 @@ export default function HomePage() {
       {/* Quality Section */}
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <Container className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-6 md:mb-8">Quality & Engineering</h2>
-          <p className="text-[#526575] mb-8 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-10 md:mb-12">Quality & Engineering</h2>
+          <p className="text-[#526575] mb-10 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
             Our tanks are engineered for durability, structural integrity, and long service life. We focus on
             material selection, proper design considerations, and providing guidance on installation and
             maintenance.
@@ -189,7 +193,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-8 md:mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             What Our Customers Say
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -219,7 +223,7 @@ export default function HomePage() {
       {/* FAQ Section */}
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-8 md:mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-12 md:mb-14 text-center">
             Frequently Asked Questions
           </h2>
           <div className="max-w-3xl mx-auto min-w-0">
@@ -236,25 +240,25 @@ export default function HomePage() {
       {/* All Vertical Tanks Section */}
       <section className="py-16 md:py-20 lg:py-24 bg-[#F4F7FA]">
         <Container>
-          <div className="text-center mb-8 md:mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-3 sm:mb-4">
-              Explore Our Vertical Water Tanks
+          <div className="text-center mb-12 md:mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-4 sm:mb-5">
+              Vertical Water Tanks
             </h2>
             <p className="text-[#526575] text-base sm:text-lg max-w-2xl mx-auto">
               Complete range of vertical cylindrical water tanks for residential, agricultural, commercial, and industrial applications.
             </p>
           </div>
-          <ProductGrid products={verticalTanks} columns="shop" />
+          <ProductGrid products={verticalTanks.slice(0, 8)} columns="shop" />
         </Container>
       </section>
 
       {/* Final CTA */}
       <section className="py-16 md:py-20 lg:py-24 bg-[#103B66] text-white">
         <Container className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 break-words">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-10 break-words">
             Looking for the Right Water Storage Solution?
           </h2>
-          <p className="text-[#B8C5D0] mb-8 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          <p className="text-[#B8C5D0] mb-10 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             Contact us today for a personalized quote tailored to your specific requirements.
           </p>
           <Link href={routes.quote} className="inline-block">
