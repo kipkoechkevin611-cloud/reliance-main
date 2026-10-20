@@ -123,9 +123,9 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 md:mb-10 gap-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#103B66]">Featured Products</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#103B66]">Vertical Cylindrical Water Tanks</h2>
             <Link href={routes.products} className="text-[#0D9488] font-medium inline-flex items-center hover:underline text-sm sm:text-base">
-              View all
+              View all products
               <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
