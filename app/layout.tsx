@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import { SiteHeader } from "../components/layout/site-header";
 import { SiteFooter } from "../components/layout/site-footer";
+import { FloatingCart } from "../components/cart/floating-cart";
 import { CartProvider } from "../lib/cart-context";
 import { siteConfig } from "../lib/site-config";
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SiteHeader />
             <main className="flex-1 min-w-0 w-full">{children}</main>
             <SiteFooter />
+            <FloatingCart />
           </CartProvider>
         </Suspense>
       </body>

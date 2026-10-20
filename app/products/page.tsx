@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Search, SlidersHorizontal, X, Droplets } from 'lucide-react'
+import { SlidersHorizontal, X, Droplets } from 'lucide-react'
 import { products } from '../../data/products'
 import { Button } from '../../components/ui/button'
 import { Input } from '../../components/ui/input'
@@ -17,9 +17,13 @@ export default function ProductsPage() {
   const [selectedPlacement, setSelectedPlacement] = useState<Placement | 'all'>('all')
   const [selectedUsage, setSelectedUsage] = useState<UsageType | 'all'>('all')
   const [showFilters, setShowFilters] = useState(false)
+  const [sortBy, setSortBy] = useState<'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'capacity-asc' | 'capacity-desc'>('name-asc')
+  const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 500000 })
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 12
 
   const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
+    const result = products.filter((product) => {
       const searchLower = searchQuery.toLowerCase()
       const matchesSearch =
         product.name.toLowerCase().includes(searchLower) ||
@@ -30,36 +34,71 @@ export default function ProductsPage() {
       const matchesMaterial = selectedMaterial === 'all' || product.material === selectedMaterial
       const matchesPlacement = selectedPlacement === 'all' || product.placement === selectedPlacement
       const matchesUsage = selectedUsage === 'all' || product.usageTypes.includes(selectedUsage)
+      const matchesPrice = !product.price || (product.price >= priceRange.min && product.price <= priceRange.max)
 
-      return matchesSearch && matchesCategory && matchesMaterial && matchesPlacement && matchesUsage
+      return matchesSearch && matchesCategory && matchesMaterial && matchesPlacement && matchesUsage && matchesPrice
     })
-  }, [searchQuery, selectedCategory, selectedMaterial, selectedPlacement, selectedUsage])
+
+    // Apply sorting
+    result.sort((a, b) => {
+      switch (sortBy) {
+        case 'name-asc':
+          return a.name.localeCompare(b.name)
+        case 'name-desc':
+          return b.name.localeCompare(a.name)
+        case 'price-asc':
+          return (a.price || 0) - (b.price || 0)
+        case 'price-desc':
+          return (b.price || 0) - (a.price || 0)
+        case 'capacity-asc':
+          return a.capacityLiters - b.capacityLiters
+        case 'capacity-desc':
+          return b.capacityLiters - a.capacityLiters
+        default:
+          return 0
+      }
+    })
+
+    return result
+  }, [searchQuery, selectedCategory, selectedMaterial, selectedPlacement, selectedUsage, sortBy, priceRange])
+
+  // Reset to page 1 when filters change
+  const effectivePage = filteredProducts.length > 0 && (currentPage - 1) * itemsPerPage >= filteredProducts.length ? 1 : currentPage
+
+  // Pagination
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage)
+  const paginatedProducts = filteredProducts.slice(
+    (effectivePage - 1) * itemsPerPage,
+    effectivePage * itemsPerPage
+  )
 
   const activeFiltersCount =
     (selectedCategory !== 'all' ? 1 : 0) +
     (selectedMaterial !== 'all' ? 1 : 0) +
     (selectedPlacement !== 'all' ? 1 : 0) +
-    (selectedUsage !== 'all' ? 1 : 0)
+    (selectedUsage !== 'all' ? 1 : 0) +
+    (priceRange.min > 0 || priceRange.max < 500000 ? 1 : 0)
 
   const clearFilters = () => {
     setSelectedCategory('all')
     setSelectedMaterial('all')
     setSelectedPlacement('all')
     setSelectedUsage('all')
+    setPriceRange({ min: 0, max: 500000 })
     setSearchQuery('')
   }
 
   return (
     <div className="min-h-screen bg-[#F4F7FA]">
       {/* Header */}
-      <div className="bg-[#103B66] text-white py-12 md:py-16 lg:py-20">
+      <div className="bg-[#103B66] text-white py-8 sm:py-12 md:py-16 lg:py-20">
         <Container>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Our Products</h1>
-          <p className="text-[#B8C5D0] text-lg md:text-xl">Explore our range of water storage solutions</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Products</h1>
+          <p className="text-[#B8C5D0] text-sm sm:text-base md:text-lg lg:text-xl">Explore our range of water storage solutions</p>
         </Container>
       </div>
 
-      <Container className="py-12 md:py-16 lg:py-20">
+      <Container className="py-8 sm:py-12 md:py-16 lg:py-20">
         {/* Search and Filter Controls */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8 min-w-0">
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -167,8 +206,48 @@ export default function ProductsPage() {
                   </select>
                 </div>
               </div>
+
+              {/* Price Range Filter */}
+              <div className="mt-6 pt-6 border-t border-[#D9E2EC]">
+                <label className="block text-sm font-medium text-[#172B3A] mb-3">Price Range (KSh)</label>
+                <div className="flex items-center gap-3">
+                  <Input
+                    type="number"
+                    placeholder="Min"
+                    value={priceRange.min || ''}
+                    onChange={(e) => setPriceRange({ ...priceRange, min: Number(e.target.value) || 0 })}
+                    className="w-full"
+                  />
+                  <span className="text-[#526575]">to</span>
+                  <Input
+                    type="number"
+                    placeholder="Max"
+                    value={priceRange.max || ''}
+                    onChange={(e) => setPriceRange({ ...priceRange, max: Number(e.target.value) || 500000 })}
+                    className="w-full"
+                  />
+                </div>
+              </div>
             </div>
           )}
+
+          {/* Sort By */}
+          <div className="mt-4 flex items-center gap-3">
+            <label htmlFor="sort-by" className="text-sm font-medium text-[#172B3A] shrink-0">Sort by:</label>
+            <select
+              id="sort-by"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'capacity-asc' | 'capacity-desc')}
+              className="h-10 px-3 py-2 rounded-md border border-[#D9E2EC] bg-white text-[#172B3A] focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-sm"
+            >
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="price-asc">Price (Low to High)</option>
+              <option value="price-desc">Price (High to Low)</option>
+              <option value="capacity-asc">Capacity (Low to High)</option>
+              <option value="capacity-desc">Capacity (High to Low)</option>
+            </select>
+          </div>
 
           <div className="mt-6 text-base text-[#526575]">
             Showing {filteredProducts.length} of {products.length} products
@@ -186,7 +265,55 @@ export default function ProductsPage() {
             </Button>
           </div>
         ) : (
-          <ProductGrid products={filteredProducts} />
+          <>
+            <ProductGrid products={paginatedProducts} />
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-sm text-[#526575]">
+                  Showing {((effectivePage - 1) * itemsPerPage) + 1} to {Math.min(effectivePage * itemsPerPage, filteredProducts.length)} of {filteredProducts.length} products
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                    disabled={effectivePage === 1}
+                    className="shrink-0"
+                  >
+                    Previous
+                  </Button>
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+                      if (totalPages > 7 && Math.abs(page - effectivePage) > 2 && page !== 1 && page !== totalPages) {
+                        return <span key={page} className="text-[#526575] px-2">...</span>
+                      }
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => setCurrentPage(page)}
+                          className={`w-10 h-10 rounded-md flex items-center justify-center text-sm font-medium transition-colors ${effectivePage === page
+                            ? 'bg-[#0D9488] text-white'
+                            : 'bg-white border border-[#D9E2EC] text-[#172B3A] hover:bg-[#F4F7FA]'
+                            }`}
+                        >
+                          {page}
+                        </button>
+                      )
+                    })}
+                  </div>
+                  <Button
+                    variant="outline"
+                    onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                    disabled={effectivePage === totalPages}
+                    className="shrink-0"
+                  >
+                    Next
+                  </Button>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         {/* 2026 Price List */}

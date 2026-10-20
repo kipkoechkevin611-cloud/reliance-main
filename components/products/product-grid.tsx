@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Droplets, Plus, Minus, ShoppingBag } from 'lucide-react'
+import { Droplets, Plus, Minus } from 'lucide-react'
 import { routes } from '../../lib/routes'
 import { Button } from '../ui/button'
 import { useCart } from '../../lib/cart-context'
@@ -19,8 +19,8 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
 
   const gridClass =
     columns === 'featured'
-      ? 'grid grid-cols-2 gap-4 sm:gap-6'
-      : 'grid grid-cols-2 gap-4 sm:gap-6'
+      ? 'grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6'
+      : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6'
 
   const handleQuantityChange = (productId: string, delta: number) => {
     setQuantities((prev) => {
@@ -59,7 +59,7 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
               </p>
               <div className="flex items-center justify-between gap-2 sm:gap-3 flex-wrap">
                 <span className="text-[#0D9488] font-semibold text-base sm:text-lg shrink-0">
-                  {product.capacityLiters.toLocaleString()}L
+                  {product.capacityLiters > 0 ? `${product.capacityLiters.toLocaleString()}L` : 'Capacity on request'}
                 </span>
                 <span className="text-xs sm:text-sm text-[#526575] capitalize bg-[#F4F7FA] px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shrink-0">
                   {product.category}
@@ -109,14 +109,6 @@ export function ProductGrid({ products, columns = 'shop' }: ProductGridProps) {
                   </Button>
                 </div>
               </div>
-              {/* Hanging Cart Icon at Bottom Left */}
-              <button
-                onClick={() => addItem(product, quantity)}
-                className="absolute bottom-4 left-4 bg-[#0D9488] text-white p-2 rounded-full shadow-md hover:bg-[#0B7A70] transition-colors cursor-pointer"
-                aria-label="Add to cart"
-              >
-                <ShoppingBag className="w-5 h-5" />
-              </button>
             </div>
           </article>
         )

@@ -7,9 +7,17 @@ import { siteConfig } from '../../lib/site-config'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 
-export function CartDrawer() {
+interface CartDrawerProps {
+  showButton?: boolean
+  isOpen?: boolean
+  onOpenChange?: (open: boolean) => void
+}
+
+export function CartDrawer({ showButton = true, isOpen: controlledIsOpen, onOpenChange }: CartDrawerProps) {
   const { items, updateQuantity, removeItem, clearCart, itemCount, getTotal, isQuotationOnly } = useCart()
-  const [isOpen, setIsOpen] = useState(false)
+  const [internalIsOpen, setInternalIsOpen] = useState(false)
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen
+  const setIsOpen = onOpenChange || setInternalIsOpen
   const [clientDetails, setClientDetails] = useState({
     fullName: '',
     phoneNumber: '',
@@ -28,24 +36,38 @@ export function CartDrawer() {
     }
 
     const total = getTotal()
-    const itemsList = items.map(item => {
-      const itemTotal = item.product.price ? item.product.price * item.quantity : 'Quote Required'
-      return `- ${item.product.name} x ${item.quantity} — ${typeof itemTotal === 'number' ? `KSh ${itemTotal.toLocaleString()}` : itemTotal}`
-    }).join('\n')
+    const itemsList = items.map((item, index) => {
+      const capacity = item.product.capacityLiters > 0 ? `${item.product.capacityLiters.toLocaleString()}L` : 'Capacity on request'
+      const itemTotal = item.product.price ? item.product.price * item.quantity : null
+      const priceText = item.product.price ? `KSh ${item.product.price.toLocaleString()}` : 'Quote Required'
+      const totalText = itemTotal ? `KSh ${itemTotal.toLocaleString()}` : 'Quote Required'
 
-    const message = `*NEW ORDER - RELIANCE TANKS*
---------------------------------
-Client Name: ${clientDetails.fullName}
-Phone: ${clientDetails.phoneNumber}
-Location: ${clientDetails.location}
-Notes: ${clientDetails.notes}
+      return `${index + 1}. ${item.product.name}
+   Capacity: ${capacity}
+   Quantity: ${item.quantity}
+   Unit Price: ${priceText}
+   Line Total: ${totalText}`
+    }).join('\n\n')
 
-*ORDER ITEMS:*
+    const totalText = total ? `KSh ${total.toLocaleString()}` : 'Quote Required (some items require quotation)'
+
+    const message = `Hello Reliance Tank Ltd,
+
+I would like to place an order for the following products:
+
 ${itemsList}
 
-*ESTIMATED TOTAL:* ${typeof total === 'number' ? `KSh ${total.toLocaleString()}` : 'Quote Required'}
---------------------------------
-Please confirm stock availability and delivery timeline.`
+Order Subtotal: ${totalText}
+
+Client Details:
+Name: ${clientDetails.fullName}
+Phone: ${clientDetails.phoneNumber}
+Location: ${clientDetails.location}
+${clientDetails.notes ? `Notes: ${clientDetails.notes}` : ''}
+
+Please confirm product availability, delivery charges, payment instructions, and the final total.
+
+Thank you.`
 
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodedMessage}`
@@ -57,19 +79,20 @@ Please confirm stock availability and delivery timeline.`
 
   return (
     <>
-      {/* Cart Icon Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="relative p-2 text-[#172B3A] hover:text-[#0D9488] transition-colors"
-        aria-label="Open cart"
-      >
-        <ShoppingBag className="w-6 h-6" />
-        {itemCount > 0 && (
-          <span className="absolute -top-1 -right-1 bg-[#0D9488] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
-            {itemCount}
-          </span>
-        )}
-      </button>
+      {showButton && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="relative p-2 text-[#172B3A] hover:text-[#0D9488] transition-colors"
+          aria-label="Open cart"
+        >
+          <ShoppingBag className="w-6 h-6" />
+          {itemCount > 0 && (
+            <span className="absolute -top-1 -right-1 bg-[#0D9488] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+              {itemCount}
+            </span>
+          )}
+        </button>
+      )}
 
       {/* Cart Drawer Overlay */}
       {isOpen && (
@@ -123,7 +146,7 @@ Please confirm stock availability and delivery timeline.`
                           {item.product.name}
                         </h3>
                         <p className="text-xs sm:text-sm text-[#526575] mb-1 sm:mb-2">
-                          {item.product.capacityLiters.toLocaleString()}L
+                          {item.product.capacityLiters > 0 ? `${item.product.capacityLiters.toLocaleString()}L` : 'Capacity on request'}
                         </p>
                         <p className="text-[#0D9488] font-semibold text-sm sm:text-base">
                           {item.product.price ? `KSh ${item.product.price.toLocaleString()}` : 'Quote Required'}

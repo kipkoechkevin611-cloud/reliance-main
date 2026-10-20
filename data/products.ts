@@ -2804,9 +2804,35 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getFeaturedProducts(): Product[] {
-  return products
-    .filter((p) => p.category === 'vertical')
-    .sort((a, b) => b.capacityLiters - a.capacityLiters)
+  // Return a diverse selection of products across categories and capacities
+  const featured = products.filter(p => p.featured && p.capacityLiters > 0)
+
+  // Group by category and pick representative products
+  const categories = ['vertical', 'horizontal', 'underground', 'industrial', 'agricultural']
+  const selected: Product[] = []
+
+  for (const category of categories) {
+    const categoryProducts = featured.filter(p => p.category === category)
+    if (categoryProducts.length > 0) {
+      // Pick one small, one medium, one large from each category if available
+      const sorted = [...categoryProducts].sort((a, b) => a.capacityLiters - b.capacityLiters)
+      if (sorted.length >= 3) {
+        selected.push(sorted[0], sorted[Math.floor(sorted.length / 2)], sorted[sorted.length - 1])
+      } else {
+        selected.push(...sorted)
+      }
+    }
+  }
+
+  // If we don't have enough, add more from vertical tanks
+  if (selected.length < 6) {
+    const vertical = featured.filter(p => p.category === 'vertical')
+    const remaining = vertical.filter(p => !selected.includes(p))
+    selected.push(...remaining.slice(0, 8 - selected.length))
+  }
+
+  // Return up to 8 products in a deterministic order (by capacity)
+  return selected.slice(0, 8).sort((a, b) => a.capacityLiters - b.capacityLiters)
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {

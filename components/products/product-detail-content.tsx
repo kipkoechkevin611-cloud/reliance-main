@@ -80,7 +80,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
                   <span className="text-xs sm:text-sm text-[#526575]">Capacity</span>
                 </div>
                 <p className="text-xl sm:text-2xl font-bold text-[#103B66] break-words">
-                  {product.capacityLiters.toLocaleString()}L
+                  {product.capacityLiters > 0 ? `${product.capacityLiters.toLocaleString()}L` : 'Capacity on request'}
                 </p>
               </div>
               <div className="bg-[#F4F7FA] rounded-lg p-3 sm:p-4 min-w-0">
@@ -252,7 +252,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
                   )}
                 </div>
                 <h3 className="font-semibold text-[#172B3A] mb-1 sm:mb-2 break-words text-sm sm:text-base line-clamp-2">{relatedProduct.name}</h3>
-                <p className="text-xs sm:text-sm text-[#526575] mb-2">{relatedProduct.capacityLiters.toLocaleString()}L</p>
+                <p className="text-xs sm:text-sm text-[#526575] mb-2">{relatedProduct.capacityLiters > 0 ? `${relatedProduct.capacityLiters.toLocaleString()}L` : 'Capacity on request'}</p>
                 <span className="text-[#0D9488] text-xs sm:text-sm font-medium inline-flex items-center mt-auto">
                   View Details
                   <ArrowRight className="ml-1 w-3 h-3 sm:w-4 sm:h-4" />
