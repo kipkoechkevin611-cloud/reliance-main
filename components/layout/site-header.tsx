@@ -2,15 +2,16 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Phone, MessageCircle } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle, ShoppingBag } from 'lucide-react'
 import { siteConfig } from '../../lib/site-config'
 import { routes } from '../../lib/routes'
 import { Button } from '../ui/button'
-import { CartDrawer } from '../cart/cart-drawer'
 import { Container } from './container'
+import { useCart } from '../../lib/cart-context'
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { itemCount } = useCart()
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[#D9E2EC]">
@@ -61,12 +62,26 @@ export function SiteHeader() {
                 Request Quote
               </Button>
             </Link>
-            <CartDrawer />
+            <Link href={routes.cart} className="relative p-2 text-[#172B3A] hover:text-[#0D9488] transition-colors">
+              <ShoppingBag className="w-6 h-6" />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#0D9488] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-1 sm:gap-2 shrink-0">
-            <CartDrawer />
+            <Link href={routes.cart} className="relative p-2 text-[#172B3A] hover:text-[#0D9488] transition-colors">
+              <ShoppingBag className="w-6 h-6" />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#0D9488] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 sm:p-3 text-[#172B3A] hover:text-[#0D9488]"

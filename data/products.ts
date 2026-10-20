@@ -1,34 +1,34 @@
 import { Product } from '@/types/product'
 
-// 2026 Price List - Reliance Tank Ltd
+// 2026 Price List - TopTank Kenya Vertical Cylindrical Tanks
 const prices2026: Record<number, number> = {
   50: 3440,
   75: 4400,
-  100: 2250,
+  100: 2000,
   120: 3040,
-  200: 5500,
+  200: 3000,
   230: 4960,
   240: 5200,
-  300: 7500,
-  500: 2250,
-  1000: 5500,
-  1350: 9500,
-  1500: 7500,
-  1900: 12500,
-  2000: 10500,
-  2500: 13500,
-  3000: 14500,
+  300: 4000,
+  500: 5500,
+  1000: 8500,
+  1350: 10300,
+  1500: 11300,
+  1900: 12800,
+  2000: 13500,
+  2500: 15500,
+  3000: 17500,
   3500: 18500,
   4000: 22500,
-  5000: 22500,
-  6000: 26500,
-  8000: 32500,
-  10000: 45500,
-  12000: 65000,
-  15000: 85000,
+  5000: 29500,
+  6000: 33500,
+  8000: 42500,
+  10000: 59500,
+  12000: 75000,
+  15000: 92000,
   16000: 98500,
   20000: 147600,
-  24000: 194000,
+  24000: 148500,
 }
 
 export const products: Product[] = [
@@ -713,7 +713,7 @@ export const products: Product[] = [
     price: prices2026[16000],
     priceStatus: 'reference',
     availability: 'made-to-order',
-    featured: true,
+    featured: false,
     seoTitle: 'Vertical Cylindrical Water Tank 16,000 Litres',
     seoDescription: 'Industrial-capacity 16,000 litre vertical water tank for large-scale operations.',
   },
@@ -749,7 +749,7 @@ export const products: Product[] = [
     price: prices2026[20000],
     priceStatus: 'reference',
     availability: 'made-to-order',
-    featured: true,
+    featured: false,
     seoTitle: 'Vertical Cylindrical Water Tank 20,000 Litres',
     seoDescription: 'Massive 20,000 litre vertical water tank for large-scale storage.',
   },
@@ -2804,35 +2804,12 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getFeaturedProducts(): Product[] {
-  // Return a diverse selection of products across categories and capacities
-  const featured = products.filter(p => p.featured && p.capacityLiters > 0)
+  // Return only the specific vertical cylindrical tanks from TopTank Kenya
+  const featuredCapacities = [100, 200, 300, 500, 1000, 1350, 1500, 1900, 2000, 2500, 3000, 4000, 5000, 6000, 8000, 10000, 12000, 15000, 24000]
 
-  // Group by category and pick representative products
-  const categories = ['vertical', 'horizontal', 'underground', 'industrial', 'agricultural']
-  const selected: Product[] = []
-
-  for (const category of categories) {
-    const categoryProducts = featured.filter(p => p.category === category)
-    if (categoryProducts.length > 0) {
-      // Pick one small, one medium, one large from each category if available
-      const sorted = [...categoryProducts].sort((a, b) => a.capacityLiters - b.capacityLiters)
-      if (sorted.length >= 3) {
-        selected.push(sorted[0], sorted[Math.floor(sorted.length / 2)], sorted[sorted.length - 1])
-      } else {
-        selected.push(...sorted)
-      }
-    }
-  }
-
-  // If we don't have enough, add more from vertical tanks
-  if (selected.length < 6) {
-    const vertical = featured.filter(p => p.category === 'vertical')
-    const remaining = vertical.filter(p => !selected.includes(p))
-    selected.push(...remaining.slice(0, 8 - selected.length))
-  }
-
-  // Return up to 8 products in a deterministic order (by capacity)
-  return selected.slice(0, 8).sort((a, b) => a.capacityLiters - b.capacityLiters)
+  return products
+    .filter(p => p.category === 'vertical' && featuredCapacities.includes(p.capacityLiters))
+    .sort((a, b) => a.capacityLiters - b.capacityLiters)
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {

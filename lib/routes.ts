@@ -7,4 +7,5 @@ export const routes = {
   quality: '/quality-standards',
   contact: '/contact',
   privacy: '/privacy-policy',
+  cart: '/cart',
 } as const

@@ -1,21 +1,17 @@
 'use client'
 
+import Link from 'next/link'
 import { ShoppingBag } from 'lucide-react'
 import { useCart } from '../../lib/cart-context'
+import { routes } from '../../lib/routes'
 
 export function FloatingCart() {
   const { itemCount } = useCart()
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
-      <button
-        onClick={() => {
-          // Click the header cart button
-          const headerCartButton = document.querySelector('button[aria-label="Open cart"]') as HTMLButtonElement
-          if (headerCartButton) {
-            headerCartButton.click()
-          }
-        }}
+      <Link
+        href={routes.cart}
         className="relative w-14 h-14 sm:w-16 sm:h-16 bg-[#0D9488] hover:bg-[#0B7D73] text-white rounded-full shadow-lg flex items-center justify-center transition-colors"
         aria-label="Open cart"
       >
@@ -25,7 +21,7 @@ export function FloatingCart() {
             {itemCount}
           </span>
         )}
-      </button>
+      </Link>
     </div>
   )
 }
