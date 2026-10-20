@@ -2,13 +2,8 @@ import { Product } from '@/types/product'
 
 // 2026 Price List - TopTank Kenya Vertical Cylindrical Tanks
 const prices2026: Record<number, number> = {
-  50: 3440,
-  75: 4400,
   100: 2000,
-  120: 3040,
   200: 3000,
-  230: 4960,
-  240: 5200,
   300: 4000,
   500: 5500,
   1000: 8500,
@@ -18,7 +13,6 @@ const prices2026: Record<number, number> = {
   2000: 13500,
   2500: 15500,
   3000: 17500,
-  3500: 18500,
   4000: 22500,
   5000: 29500,
   6000: 33500,
@@ -26,8 +20,6 @@ const prices2026: Record<number, number> = {
   10000: 59500,
   12000: 75000,
   15000: 92000,
-  16000: 98500,
-  20000: 147600,
   24000: 148500,
 }
 
@@ -680,78 +672,6 @@ export const products: Product[] = [
     featured: true,
     seoTitle: 'Vertical Cylindrical Water Tank 15,000 Litres',
     seoDescription: 'Industrial-capacity 15,000 litre vertical water tank for large-scale operations.',
-  },
-  {
-    id: 'vert-16000',
-    slug: 'vertical-cylindrical-16000l',
-    name: 'Vertical Cylindrical Water Tank — 16,000 Litres',
-    shortDescription: 'Industrial-capacity vertical tank',
-    description: 'An industrial-capacity vertical cylindrical water tank for large-scale agricultural operations, commercial facilities, and industrial applications.',
-    category: 'vertical',
-    capacityLiters: 16000,
-    material: 'polyethylene',
-    usageTypes: ['agricultural', 'commercial', 'industrial'],
-    placement: 'above-ground',
-    dimensions: {
-      diameter: 3.2,
-      height: 3.8,
-      unit: 'm',
-    },
-    colorOptions: ['Black', 'Dark Green', 'Blue'],
-    features: [
-      'UV-stabilized polyethylene',
-      'Food-grade material',
-      'Multiple outlet fittings',
-      'Industrial capacity',
-    ],
-    specifications: {
-      'Layers': 'Single',
-      'Material': 'Food-grade HDPE',
-      'Foundation': 'Concrete base recommended',
-    },
-    images: ['/vertical.jpeg'],
-    price: prices2026[16000],
-    priceStatus: 'reference',
-    availability: 'made-to-order',
-    featured: false,
-    seoTitle: 'Vertical Cylindrical Water Tank 16,000 Litres',
-    seoDescription: 'Industrial-capacity 16,000 litre vertical water tank for large-scale operations.',
-  },
-  {
-    id: 'vert-20000',
-    slug: 'vertical-cylindrical-20000l',
-    name: 'Vertical Cylindrical Water Tank — 20,000 Litres',
-    shortDescription: 'Massive vertical tank for large-scale storage',
-    description: 'A massive vertical cylindrical water tank for large-scale water storage on agricultural operations, commercial complexes, and industrial facilities.',
-    category: 'vertical',
-    capacityLiters: 20000,
-    material: 'polyethylene',
-    usageTypes: ['agricultural', 'commercial', 'industrial'],
-    placement: 'above-ground',
-    dimensions: {
-      diameter: 3.5,
-      height: 4.0,
-      unit: 'm',
-    },
-    colorOptions: ['Black', 'Dark Green', 'Blue'],
-    features: [
-      'UV-stabilized polyethylene',
-      'Food-grade material',
-      'Multiple outlet fittings',
-      'Massive capacity',
-    ],
-    specifications: {
-      'Layers': 'Single',
-      'Material': 'Food-grade HDPE',
-      'Foundation': 'Concrete base required',
-    },
-    images: ['/vertical.jpeg'],
-    price: prices2026[20000],
-    priceStatus: 'reference',
-    availability: 'made-to-order',
-    featured: false,
-    seoTitle: 'Vertical Cylindrical Water Tank 20,000 Litres',
-    seoDescription: 'Massive 20,000 litre vertical water tank for large-scale storage.',
   },
   {
     id: 'vert-24000',
@@ -2805,10 +2725,8 @@ export function getProductsByCategory(category: string): Product[] {
 
 export function getFeaturedProducts(): Product[] {
   // Return only the specific vertical cylindrical tanks from TopTank Kenya
-  const featuredCapacities = [100, 200, 300, 500, 1000, 1350, 1500, 1900, 2000, 2500, 3000, 4000, 5000, 6000, 8000, 10000, 12000, 15000, 24000]
-
   return products
-    .filter(p => p.category === 'vertical' && featuredCapacities.includes(p.capacityLiters))
+    .filter(p => p.category === 'vertical')
     .sort((a, b) => a.capacityLiters - b.capacityLiters)
 }
 

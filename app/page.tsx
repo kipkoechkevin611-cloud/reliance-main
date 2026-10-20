@@ -129,7 +129,7 @@ export default function HomePage() {
               <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
-          <FeaturedProducts products={featuredProducts.slice(0, 6)} />
+          <FeaturedProducts products={featuredProducts} />
         </Container>
       </section>
 
