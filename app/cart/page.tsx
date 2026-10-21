@@ -257,7 +257,7 @@ Thank you.`
                   size="lg"
                 >
                   <MessageCircle className="mr-2 w-5 h-5 sm:w-6 sm:h-6" />
-                  Order via WhatsApp
+                  Order Now
                 </Button>
                 <Button
                   onClick={clearCart}
