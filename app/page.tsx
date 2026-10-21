@@ -16,19 +16,19 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0B2E59] via-[#0756A5] to-[#0B2E59] text-white min-h-[450px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0B2E59] via-[#0756A5] to-[#0B2E59] text-white min-h-[500px] sm:min-h-[550px] md:min-h-[650px] lg:min-h-[750px] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-[400px] sm:w-[500px] lg:w-[600px] h-[400px] sm:h-[500px] lg:h-[600px] bg-[#12A6A6] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
         </div>
         <Container>
-          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center py-12 sm:py-16 md:py-20 lg:py-24">
+          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center py-16 sm:py-20 md:py-24 lg:py-28">
             {/* Text Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="mb-4 sm:mb-6 md:mb-8 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full border border-white/20">
+              <div className="mb-5 sm:mb-6 md:mb-8 inline-flex items-center gap-2 sm:gap-2.5 bg-white/10 backdrop-blur-sm px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full border border-white/20">
                 <Droplets className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#12A6A6]" />
                 <span className="text-xs sm:text-sm md:text-base font-semibold text-white">Kenya&apos;s #1 Water Storage Solutions</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-5 sm:mb-6 md:mb-8 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white">
                 Reliable Water Storage Solutions for Every Need
               </h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#E8F5F5] mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -36,13 +36,13 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-center lg:justify-start mb-6 sm:mb-8 md:mb-10">
                 <Link href={routes.products} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="primary" size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base lg:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 min-h-[44px] sm:min-h-[48px] bg-[#12A6A6] hover:bg-[#0E8A8A] border-0">
+                  <Button variant="primary" size="lg" className="w-full sm:w-auto text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 min-h-[44px] sm:min-h-[48px] bg-[#12A6A6] hover:bg-[#0E8A8A] border-0">
                     Shop Water Tanks
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
                 </Link>
                 <Link href={routes.quote} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 text-xs sm:text-sm md:text-base lg:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 min-h-[44px] sm:min-h-[48px]">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 min-h-[44px] sm:min-h-[48px]">
                     Get a Quote
                   </Button>
                 </Link>
@@ -60,7 +60,7 @@ export default function HomePage() {
 
             {/* Hero Image */}
             <div className="flex items-center justify-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[200px] sm:max-w-[280px] md:max-w-[350px] lg:max-w-lg">
+              <div className="relative w-full max-w-[250px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-xl">
                 <img
                   src="/vertical.jpeg"
                   alt="Vertical Cylindrical Water Tank"
@@ -76,7 +76,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-10 md:mb-12 gap-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] leading-tight">Shop by Category</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] leading-tight">Shop by Category</h2>
             <Link href={routes.products} className="text-[#12A6A6] font-medium inline-flex items-center hover:underline text-base sm:text-lg">
               View all
               <ArrowRight className="ml-1 w-4 h-4" />
@@ -118,13 +118,13 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.link}
-                className="bg-[#F3F7FB] rounded-lg p-5 sm:p-6 md:p-8 hover:shadow-md transition-shadow group flex flex-col h-full min-w-0 border border-[#DCE5EF]"
+                className="bg-[#F3F7FB] rounded-lg p-4 sm:p-5 md:p-6 lg:p-8 hover:shadow-md transition-shadow group flex flex-col h-full min-w-0 border border-[#DCE5EF]"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#12A6A6]/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-[#12A6A6]/20 transition-colors shrink-0">
-                  <category.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#12A6A6]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-[#12A6A6]/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-[#12A6A6]/20 transition-colors shrink-0">
+                  <category.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#12A6A6]" />
                 </div>
-                <h3 className="font-semibold text-[#172B4D] mb-2 sm:mb-3 text-sm sm:text-base md:text-lg leading-tight break-words">{category.title}</h3>
-                <p className="text-sm sm:text-base md:text-lg text-[#526579] leading-relaxed break-words flex-1">{category.description}</p>
+                <h3 className="font-semibold text-[#0B2E59] mb-2 sm:mb-3 text-sm sm:text-base md:text-lg lg:text-xl leading-tight break-words">{category.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#172B4D] leading-relaxed break-words flex-1">{category.description}</p>
               </Link>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-10 md:mb-12 gap-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] leading-tight">Vertical Cylindrical Water Tanks</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] leading-tight">Vertical Cylindrical Water Tanks</h2>
             <Link href={routes.products} className="text-[#12A6A6] font-medium inline-flex items-center hover:underline text-base sm:text-lg">
               View all products
               <ArrowRight className="ml-1 w-4 h-4" />
@@ -148,19 +148,19 @@ export default function HomePage() {
       {/* Why Choose Reliance Tank */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
         <Container>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
             Why Choose Reliance Tank?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {features.map((feature) => {
               const Icon = getIcon(feature.icon)
               return (
-                <div key={feature.id} className="p-6 sm:p-8 md:p-10 flex flex-col h-full items-start gap-4 sm:gap-5 md:gap-6 min-w-0 bg-white border border-[#DCE5EF] rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#12A6A6]/10 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#12A6A6]" />
+                <div key={feature.id} className="p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col h-full items-start gap-3 sm:gap-4 md:gap-5 lg:gap-6 min-w-0 bg-white border border-[#DCE5EF] rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-[#12A6A6]/10 rounded-lg flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#12A6A6]" />
                   </div>
-                  <h3 className="font-semibold text-[#172B4D] text-base sm:text-lg md:text-xl leading-tight break-words">{feature.title}</h3>
-                  <p className="text-sm sm:text-base md:text-lg text-[#526579] leading-relaxed break-words">{feature.description}</p>
+                  <h3 className="font-semibold text-[#0B2E59] text-sm sm:text-base md:text-lg lg:text-xl leading-tight break-words">{feature.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#172B4D] leading-relaxed break-words">{feature.description}</p>
                 </div>
               )
             })}
@@ -171,7 +171,7 @@ export default function HomePage() {
       {/* Featured Categories */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#F3F7FB]">
         <Container>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
             Our Product Categories
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -210,14 +210,14 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.link}
-                className="bg-white rounded-lg p-6 sm:p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full min-w-0 border border-[#DCE5EF]"
+                className="bg-white rounded-lg p-5 sm:p-6 md:p-8 lg:p-10 shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full min-w-0 border border-[#DCE5EF]"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#12A6A6]/10 rounded-lg flex items-center justify-center mb-4 sm:mb-5 md:mb-6 group-hover:bg-[#12A6A6]/20 transition-colors shrink-0">
-                  <category.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#12A6A6]" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-[#12A6A6]/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 group-hover:bg-[#12A6A6]/20 transition-colors shrink-0">
+                  <category.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#12A6A6]" />
                 </div>
-                <h3 className="font-semibold text-[#172B4D] mb-3 sm:mb-4 text-base sm:text-lg md:text-xl leading-tight break-words">{category.title}</h3>
-                <p className="text-sm sm:text-base md:text-lg text-[#526579] mb-4 sm:mb-5 md:mb-6 leading-relaxed break-words flex-1">{category.description}</p>
-                <span className="text-[#12A6A6] text-sm sm:text-base md:text-lg font-medium inline-flex items-center mt-auto group-hover:translate-x-1 transition-transform">
+                <h3 className="font-semibold text-[#0B2E59] mb-2 sm:mb-3 md:mb-4 text-sm sm:text-base md:text-lg lg:text-xl leading-tight break-words">{category.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#172B4D] mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-relaxed break-words flex-1">{category.description}</p>
+                <span className="text-[#12A6A6] text-xs sm:text-sm md:text-base lg:text-lg font-medium inline-flex items-center mt-auto group-hover:translate-x-1 transition-transform">
                   View Category →
                 </span>
               </Link>
@@ -229,7 +229,7 @@ export default function HomePage() {
       {/* Applications */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#F3F7FB]">
         <Container>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
             Applications & Industries
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -243,8 +243,8 @@ export default function HomePage() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#F3F7FB] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-5 shrink-0">
                   <app.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#12A6A6]" />
                 </div>
-                <h3 className="font-semibold text-[#172B4D] mb-2 sm:mb-3 text-sm sm:text-base md:text-lg leading-tight break-words">{app.title}</h3>
-                <p className="text-xs sm:text-sm md:text-base text-[#526579] leading-relaxed break-words">{app.description}</p>
+                <h3 className="font-semibold text-[#0B2E59] mb-2 sm:mb-3 text-sm sm:text-base md:text-lg leading-tight break-words">{app.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base text-[#172B4D] leading-relaxed break-words">{app.description}</p>
               </div>
             ))}
           </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
       {/* Quality Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
         <Container className="text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 leading-tight">Quality & Engineering</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 leading-tight">Quality & Engineering</h2>
           <p className="text-[#526579] mb-8 sm:mb-10 md:mb-12 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
             Our tanks are engineered for durability, structural integrity, and long service life. We focus on
             material selection, proper design considerations, and providing guidance on installation and
@@ -271,7 +271,7 @@ export default function HomePage() {
       {/* FAQ Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
         <Container>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#0B2E59] mb-8 sm:mb-10 md:mb-12 text-center leading-tight">
             Frequently Asked Questions
           </h2>
           <div className="max-w-3xl mx-auto min-w-0">
@@ -288,7 +288,7 @@ export default function HomePage() {
       {/* Final CTA */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#0B2E59] text-white">
         <Container className="text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 md:mb-10 break-words leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 md:mb-10 break-words leading-tight">
             Looking for the Right Water Storage Solution?
           </h2>
           <p className="text-[#E8F5F5] mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed">
