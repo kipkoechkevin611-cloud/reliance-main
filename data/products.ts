@@ -20,6 +20,8 @@ const prices2026: Record<number, number> = {
   10000: 59500,
   12000: 75000,
   15000: 92000,
+  16000: 96500,
+  20000: 126500,
   24000: 148500,
 }
 
@@ -672,6 +674,78 @@ export const products: Product[] = [
     featured: true,
     seoTitle: 'Vertical Cylindrical Water Tank 15,000 Litres',
     seoDescription: 'Industrial-capacity 15,000 litre vertical water tank for large-scale operations.',
+  },
+  {
+    id: 'vert-16000',
+    slug: 'vertical-cylindrical-16000l',
+    name: 'Vertical Cylindrical Water Tank — 16,000 Litres',
+    shortDescription: 'Extra-large vertical tank for commercial applications',
+    description: 'An extra-large vertical cylindrical water tank for commercial facilities, large farms, and industrial applications requiring substantial water storage.',
+    category: 'vertical',
+    capacityLiters: 16000,
+    material: 'polyethylene',
+    usageTypes: ['agricultural', 'commercial', 'industrial'],
+    placement: 'above-ground',
+    dimensions: {
+      diameter: 3.2,
+      height: 3.8,
+      unit: 'm',
+    },
+    colorOptions: ['Black', 'Dark Green', 'Blue'],
+    features: [
+      'UV-stabilized polyethylene',
+      'Food-grade material',
+      'Multiple outlet fittings',
+      'Extra-large capacity',
+    ],
+    specifications: {
+      'Layers': 'Single',
+      'Material': 'Food-grade HDPE',
+      'Foundation': 'Concrete base recommended',
+    },
+    images: ['/vertical.jpeg'],
+    price: prices2026[16000],
+    priceStatus: 'reference',
+    availability: 'made-to-order',
+    featured: true,
+    seoTitle: 'Vertical Cylindrical Water Tank 16,000 Litres',
+    seoDescription: 'Extra-large 16,000 litre vertical water tank for commercial applications.',
+  },
+  {
+    id: 'vert-20000',
+    slug: 'vertical-cylindrical-20000l',
+    name: 'Vertical Cylindrical Water Tank — 20,000 Litres',
+    shortDescription: 'Massive vertical tank for large-scale operations',
+    description: 'A massive vertical cylindrical water tank for large-scale agricultural operations, industrial facilities, and commercial applications requiring extensive water storage.',
+    category: 'vertical',
+    capacityLiters: 20000,
+    material: 'polyethylene',
+    usageTypes: ['agricultural', 'commercial', 'industrial'],
+    placement: 'above-ground',
+    dimensions: {
+      diameter: 3.5,
+      height: 4.0,
+      unit: 'm',
+    },
+    colorOptions: ['Black', 'Dark Green', 'Blue'],
+    features: [
+      'UV-stabilized polyethylene',
+      'Food-grade material',
+      'Multiple outlet fittings',
+      'Massive capacity',
+    ],
+    specifications: {
+      'Layers': 'Single',
+      'Material': 'Food-grade HDPE',
+      'Foundation': 'Concrete base required',
+    },
+    images: ['/vertical.jpeg'],
+    price: prices2026[20000],
+    priceStatus: 'reference',
+    availability: 'made-to-order',
+    featured: true,
+    seoTitle: 'Vertical Cylindrical Water Tank 20,000 Litres',
+    seoDescription: 'Massive 20,000 litre vertical water tank for large-scale operations.',
   },
   {
     id: 'vert-24000',
@@ -2724,11 +2798,10 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getFeaturedProducts(): Product[] {
-  // Return only vertical cylindrical tanks for homepage, sorted by capacity
+  // Return all vertical cylindrical tanks for homepage, sorted by capacity
   return products
     .filter(p => p.category === 'vertical' && p.featured && p.capacityLiters > 0)
     .sort((a, b) => a.capacityLiters - b.capacityLiters)
-    .slice(0, 6)
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {

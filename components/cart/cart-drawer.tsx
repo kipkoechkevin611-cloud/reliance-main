@@ -106,8 +106,8 @@ Thank you.`
           {/* Drawer */}
           <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl flex flex-col">
             {/* Drawer Header */}
-            <div className="flex items-center justify-between p-5 sm:p-6 md:p-7 border-b border-[#DCE5EF]">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0B2E59]">Shopping Cart</h2>
+            <div className="flex items-center justify-between p-4 sm:p-5 md:p-6 border-b border-[#DCE5EF]">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0B2E59]">Shopping Cart</h2>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-2 text-[#526579] hover:text-[#0B2E59] transition-colors"
@@ -117,63 +117,63 @@ Thank you.`
             </div>
 
             {/* Cart Items */}
-            <div className="flex-1 overflow-y-auto p-5 sm:p-6 md:p-7">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-5 md:p-6">
               {items.length === 0 ? (
-                <div className="text-center py-10 sm:py-14">
-                  <ShoppingBag className="w-14 h-14 sm:w-18 sm:h-18 text-[#526579] mx-auto mb-4" />
-                  <p className="text-[#526579] text-base sm:text-lg">Your cart is empty</p>
+                <div className="text-center py-8 sm:py-10 md:py-14">
+                  <ShoppingBag className="w-12 h-12 sm:w-14 sm:w-16 text-[#526579] mx-auto mb-3 sm:mb-4" />
+                  <p className="text-[#526579] text-sm sm:text-base md:text-lg">Your cart is empty</p>
                 </div>
               ) : (
-                <div className="space-y-5 sm:space-y-6">
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
                   {items.map((item) => (
-                    <div key={item.product.id} className="flex gap-4 sm:gap-5 pb-5 sm:pb-6 border-b border-[#DCE5EF]">
+                    <div key={item.product.id} className="flex gap-3 sm:gap-4 md:gap-5 pb-4 sm:pb-5 md:pb-6 border-b border-[#DCE5EF]">
                       {/* Product Image */}
-                      <div className="w-18 h-18 sm:w-20 sm:h-20 bg-[#F3F7FB] rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-[#F3F7FB] rounded-lg flex items-center justify-center flex-shrink-0">
                         {item.product.images && item.product.images.length > 0 ? (
                           <img
                             src={item.product.images[0]}
                             alt={item.product.name}
-                            className="w-full h-full object-contain p-2.5"
+                            className="w-full h-full object-contain p-2"
                           />
                         ) : (
-                          <ShoppingBag className="w-7 h-7 sm:w-8 sm:h-8 text-[#526579]" />
+                          <ShoppingBag className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#526579]" />
                         )}
                       </div>
 
                       {/* Product Details */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-[#0B2E59] text-sm sm:text-base line-clamp-2 mb-2">
+                        <h3 className="font-semibold text-[#0B2E59] text-xs sm:text-sm md:text-base line-clamp-2 mb-1.5 sm:mb-2">
                           {item.product.name}
                         </h3>
-                        <p className="text-xs sm:text-sm text-[#526579] mb-2">
+                        <p className="text-[10px] sm:text-xs md:text-sm text-[#526579] mb-1.5 sm:mb-2">
                           {item.product.capacityLiters > 0 ? `${item.product.capacityLiters.toLocaleString()}L` : 'Capacity on request'}
                         </p>
-                        <p className="text-[#12A6A6] font-semibold text-sm sm:text-base mb-3">
+                        <p className="text-[#12A6A6] font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3">
                           {item.product.price ? `KSh ${item.product.price.toLocaleString()}` : 'Quote Required'}
                         </p>
 
                         {/* Quantity Controls */}
-                        <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                           <button
                             onClick={() => handleQuantityChange(item.product.id, item.quantity - 1)}
-                            className="w-8 h-8 sm:w-9 sm:h-9 rounded-md border border-[#DCE5EF] flex items-center justify-center hover:bg-[#F3F7FB] transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-md border border-[#DCE5EF] flex items-center justify-center hover:bg-[#F3F7FB] transition-colors min-h-[36px] sm:min-h-[40px] md:min-h-[44px]"
                           >
-                            <Minus className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                           </button>
-                          <span className="w-8 sm:w-10 text-center font-medium text-[#0B2E59] text-sm sm:text-base">
+                          <span className="w-8 sm:w-10 md:w-12 text-center font-medium text-[#0B2E59] text-xs sm:text-sm md:text-base">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => handleQuantityChange(item.product.id, item.quantity + 1)}
-                            className="w-8 h-8 sm:w-9 sm:h-9 rounded-md border border-[#DCE5EF] flex items-center justify-center hover:bg-[#F3F7FB] transition-colors"
+                            className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-md border border-[#DCE5EF] flex items-center justify-center hover:bg-[#F3F7FB] transition-colors min-h-[36px] sm:min-h-[40px] md:min-h-[44px]"
                           >
-                            <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                           </button>
                           <button
                             onClick={() => removeItem(item.product.id)}
-                            className="ml-auto p-2 text-[#526579] hover:text-red-600 transition-colors"
+                            className="ml-auto p-1.5 sm:p-2 text-[#526579] hover:text-red-600 transition-colors"
                           >
-                            <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                           </button>
                         </div>
                       </div>
@@ -185,11 +185,11 @@ Thank you.`
 
             {/* Client Details Form */}
             {items.length > 0 && (
-              <div className="border-t border-[#DCE5EF] p-5 sm:p-6 md:p-7 space-y-4 sm:space-y-5">
-                <h3 className="font-semibold text-[#0B2E59] text-base sm:text-lg">Delivery Details</h3>
-                <div className="space-y-4 sm:space-y-5">
+              <div className="border-t border-[#DCE5EF] p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4 md:space-y-5">
+                <h3 className="font-semibold text-[#0B2E59] text-sm sm:text-base md:text-lg">Delivery Details</h3>
+                <div className="space-y-3 sm:space-y-4 md:space-y-5">
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-[10px] sm:text-xs md:text-sm font-medium text-[#0B2E59] mb-1.5 sm:mb-2 md:mb-2.5">
                       Full Name <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -197,11 +197,11 @@ Thank you.`
                       placeholder="Enter your full name"
                       value={clientDetails.fullName}
                       onChange={(e) => setClientDetails({ ...clientDetails, fullName: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[44px] sm:min-h-[48px]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-[10px] sm:text-xs md:text-sm font-medium text-[#0B2E59] mb-1.5 sm:mb-2 md:mb-2.5">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -209,11 +209,11 @@ Thank you.`
                       placeholder="Enter your phone number"
                       value={clientDetails.phoneNumber}
                       onChange={(e) => setClientDetails({ ...clientDetails, phoneNumber: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[44px] sm:min-h-[48px]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-[10px] sm:text-xs md:text-sm font-medium text-[#0B2E59] mb-1.5 sm:mb-2 md:mb-2.5">
                       Delivery Location <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -221,11 +221,11 @@ Thank you.`
                       placeholder="Enter your delivery location/region"
                       value={clientDetails.location}
                       onChange={(e) => setClientDetails({ ...clientDetails, location: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[44px] sm:min-h-[48px]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-[10px] sm:text-xs md:text-sm font-medium text-[#0B2E59] mb-1.5 sm:mb-2 md:mb-2.5">
                       Delivery Instructions (Optional)
                     </label>
                     <Input
@@ -233,7 +233,7 @@ Thank you.`
                       placeholder="Any special instructions or tank capacity notes"
                       value={clientDetails.notes}
                       onChange={(e) => setClientDetails({ ...clientDetails, notes: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[44px] sm:min-h-[48px]"
                     />
                   </div>
                 </div>
@@ -242,42 +242,42 @@ Thank you.`
 
             {/* Drawer Footer */}
             {items.length > 0 && (
-              <div className="border-t border-[#DCE5EF] p-5 sm:p-6 md:p-7 space-y-4 sm:space-y-5 bg-[#F3F7FB]">
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex justify-between items-center text-sm sm:text-base">
+              <div className="border-t border-[#DCE5EF] p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4 md:space-y-5 bg-[#F3F7FB]">
+                <div className="space-y-2 sm:space-y-3 md:space-y-4">
+                  <div className="flex justify-between items-center text-xs sm:text-sm md:text-base">
                     <span className="text-[#526579]">Subtotal ({itemCount} items)</span>
                     <span className="font-medium text-[#0B2E59]">
                       {typeof getTotal() === 'number' ? `KSh ${getTotal().toLocaleString()}` : 'Quote Required'}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center text-sm sm:text-base">
+                  <div className="flex justify-between items-center text-xs sm:text-sm md:text-base">
                     <span className="text-[#526579]">Delivery</span>
                     <span className="font-medium text-[#0B2E59]">Calculated at checkout</span>
                   </div>
-                  <div className="border-t border-[#DCE5EF] pt-3 sm:pt-4 flex justify-between items-center">
-                    <span className="text-lg sm:text-xl font-bold text-[#0B2E59]">Total</span>
-                    <span className="text-xl sm:text-2xl font-bold text-[#12A6A6]">
+                  <div className="border-t border-[#DCE5EF] pt-2 sm:pt-3 md:pt-4 flex justify-between items-center">
+                    <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#0B2E59]">Total</span>
+                    <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-[#12A6A6]">
                       {typeof getTotal() === 'number' ? `KSh ${getTotal().toLocaleString()}` : 'Quote Required'}
                     </span>
                   </div>
                 </div>
                 {isQuotationOnly && (
-                  <p className="text-xs sm:text-sm text-[#526579] italic bg-white p-3 rounded">
+                  <p className="text-[10px] sm:text-xs md:text-sm text-[#526579] italic mt-3 sm:mt-4 md:mt-5 bg-white p-2 sm:p-2.5 md:p-3 rounded">
                     * Some items require quotation. Final price will be confirmed.
                   </p>
                 )}
                 <Button
                   onClick={handleWhatsAppOrder}
-                  className="w-full bg-[#12A6A6] hover:bg-[#0B7A70] text-white font-semibold"
+                  className="w-full bg-[#12A6A6] hover:bg-[#0B7A70] text-white font-semibold min-h-[44px] sm:min-h-[48px]"
                   size="lg"
                 >
-                  <MessageCircle className="mr-2 w-5 h-5 sm:w-6 sm:h-6" />
+                  <MessageCircle className="mr-2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                   Order Now
                 </Button>
                 <Button
                   onClick={clearCart}
                   variant="ghost"
-                  className="w-full text-[#526579] hover:text-red-600"
+                  className="w-full text-[#526579] hover:text-red-600 min-h-[44px] sm:min-h-[48px]"
                 >
                   Clear Cart
                 </Button>
