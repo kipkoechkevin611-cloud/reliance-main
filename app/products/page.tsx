@@ -89,9 +89,9 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F4F7FA]">
+    <div className="min-h-screen bg-[#F3F7FB]">
       {/* Header */}
-      <div className="bg-[#103B66] text-white py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="bg-[#0B2E59] text-white py-8 sm:py-12 md:py-16 lg:py-20">
         <Container>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">Our Products</h1>
           <p className="text-[#B8C5D0] text-sm sm:text-base md:text-lg lg:text-xl">Explore our range of water storage solutions</p>
@@ -119,7 +119,7 @@ export default function ProductsPage() {
               <SlidersHorizontal className="mr-2 w-5 h-5" />
               Filters
               {activeFiltersCount > 0 && (
-                <span className="ml-2 bg-[#0D9488] text-white text-sm px-2.5 py-1 rounded-full">
+                <span className="ml-2 bg-[#12A6A6] text-white text-sm px-2.5 py-1 rounded-full">
                   {activeFiltersCount}
                 </span>
               )}
@@ -133,15 +133,15 @@ export default function ProductsPage() {
           </div>
 
           {showFilters && (
-            <div className="border-t border-[#D9E2EC] pt-6">
+            <div className="border-t border-[#DCE5EF] pt-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="min-w-0">
-                  <label htmlFor="filter-category" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Category</label>
+                  <label htmlFor="filter-category" className="block text-sm font-medium text-[#172B4D] mb-2 break-words">Category</label>
                   <select
                     id="filter-category"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value as ProductCategory | 'all')}
-                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#D9E2EC] bg-white text-[#172B3A] focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-base"
+                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Categories</option>
                     <option value="vertical">Vertical Tanks</option>
@@ -158,12 +158,12 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <label htmlFor="filter-material" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Material</label>
+                  <label htmlFor="filter-material" className="block text-sm font-medium text-[#172B4D] mb-2 break-words">Material</label>
                   <select
                     id="filter-material"
                     value={selectedMaterial}
                     onChange={(e) => setSelectedMaterial(e.target.value as Material | 'all')}
-                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#D9E2EC] bg-white text-[#172B3A] focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-base"
+                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Materials</option>
                     <option value="steel">Steel</option>
@@ -175,12 +175,12 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <label htmlFor="filter-placement" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Placement</label>
+                  <label htmlFor="filter-placement" className="block text-sm font-medium text-[#172B4D] mb-2 break-words">Placement</label>
                   <select
                     id="filter-placement"
                     value={selectedPlacement}
                     onChange={(e) => setSelectedPlacement(e.target.value as Placement | 'all')}
-                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#D9E2EC] bg-white text-[#172B3A] focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-base"
+                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Placements</option>
                     <option value="above-ground">Above Ground</option>
@@ -190,12 +190,12 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <label htmlFor="filter-usage" className="block text-sm font-medium text-[#172B3A] mb-2 break-words">Intended Use</label>
+                  <label htmlFor="filter-usage" className="block text-sm font-medium text-[#172B4D] mb-2 break-words">Intended Use</label>
                   <select
                     id="filter-usage"
                     value={selectedUsage}
                     onChange={(e) => setSelectedUsage(e.target.value as UsageType | 'all')}
-                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#D9E2EC] bg-white text-[#172B3A] focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-base"
+                    className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Uses</option>
                     <option value="industrial">Industrial</option>
@@ -208,8 +208,8 @@ export default function ProductsPage() {
               </div>
 
               {/* Price Range Filter */}
-              <div className="mt-6 pt-6 border-t border-[#D9E2EC]">
-                <label className="block text-sm font-medium text-[#172B3A] mb-3">Price Range (KSh)</label>
+              <div className="mt-6 pt-6 border-t border-[#DCE5EF]">
+                <label className="block text-sm font-medium text-[#172B4D] mb-3">Price Range (KSh)</label>
                 <div className="flex items-center gap-3">
                   <Input
                     type="number"
@@ -218,7 +218,7 @@ export default function ProductsPage() {
                     onChange={(e) => setPriceRange({ ...priceRange, min: Number(e.target.value) || 0 })}
                     className="w-full"
                   />
-                  <span className="text-[#526575]">to</span>
+                  <span className="text-[#526579]">to</span>
                   <Input
                     type="number"
                     placeholder="Max"
@@ -233,12 +233,12 @@ export default function ProductsPage() {
 
           {/* Sort By */}
           <div className="mt-4 flex items-center gap-3">
-            <label htmlFor="sort-by" className="text-sm font-medium text-[#172B3A] shrink-0">Sort by:</label>
+            <label htmlFor="sort-by" className="text-sm font-medium text-[#172B4D] shrink-0">Sort by:</label>
             <select
               id="sort-by"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'capacity-asc' | 'capacity-desc')}
-              className="h-10 px-3 py-2 rounded-md border border-[#D9E2EC] bg-white text-[#172B3A] focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-sm"
+              className="h-10 px-3 py-2 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-sm"
             >
               <option value="name-asc">Name (A-Z)</option>
               <option value="name-desc">Name (Z-A)</option>
@@ -249,7 +249,7 @@ export default function ProductsPage() {
             </select>
           </div>
 
-          <div className="mt-6 text-base text-[#526575]">
+          <div className="mt-6 text-base text-[#526579]">
             Showing {filteredProducts.length} of {products.length} products
           </div>
         </div>
@@ -257,9 +257,9 @@ export default function ProductsPage() {
         {/* Products Grid — single grid owned by ProductGrid (no nested wrapper grid) */}
         {filteredProducts.length === 0 ? (
           <div className="bg-white rounded-lg shadow-sm p-12 md:p-16 text-center">
-            <Droplets className="w-16 h-16 text-[#526575] mx-auto mb-6" />
-            <h3 className="text-xl font-semibold text-[#172B3A] mb-3">No products found</h3>
-            <p className="text-base text-[#526575] mb-8">Try adjusting your filters or search query</p>
+            <Droplets className="w-16 h-16 text-[#526579] mx-auto mb-6" />
+            <h3 className="text-xl font-semibold text-[#172B4D] mb-3">No products found</h3>
+            <p className="text-base text-[#526579] mb-8">Try adjusting your filters or search query</p>
             <Button variant="outline" onClick={clearFilters}>
               Clear All Filters
             </Button>
@@ -271,7 +271,7 @@ export default function ProductsPage() {
             {/* Pagination */}
             {totalPages > 1 && (
               <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-sm text-[#526575]">
+                <div className="text-sm text-[#526579]">
                   Showing {((effectivePage - 1) * itemsPerPage) + 1} to {Math.min(effectivePage * itemsPerPage, filteredProducts.length)} of {filteredProducts.length} products
                 </div>
                 <div className="flex items-center gap-2">
@@ -286,15 +286,15 @@ export default function ProductsPage() {
                   <div className="flex items-center gap-1">
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
                       if (totalPages > 7 && Math.abs(page - effectivePage) > 2 && page !== 1 && page !== totalPages) {
-                        return <span key={page} className="text-[#526575] px-2">...</span>
+                        return <span key={page} className="text-[#526579] px-2">...</span>
                       }
                       return (
                         <button
                           key={page}
                           onClick={() => setCurrentPage(page)}
                           className={`w-10 h-10 rounded-md flex items-center justify-center text-sm font-medium transition-colors ${effectivePage === page
-                            ? 'bg-[#0D9488] text-white'
-                            : 'bg-white border border-[#D9E2EC] text-[#172B3A] hover:bg-[#F4F7FA]'
+                            ? 'bg-[#12A6A6] text-white'
+                            : 'bg-white border border-[#DCE5EF] text-[#172B4D] hover:bg-[#F3F7FB]'
                             }`}
                         >
                           {page}
@@ -318,7 +318,7 @@ export default function ProductsPage() {
 
         {/* 2026 Price List */}
         <div className="mt-12 md:mt-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#103B66] mb-6 md:mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0B2E59] mb-6 md:mb-8 text-center">
             2026 Price List
           </h2>
           <PricingTable />

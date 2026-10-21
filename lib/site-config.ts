@@ -31,15 +31,15 @@ export const siteConfig = {
 } as const
 
 export const brandColors = {
-  navy: '#103B66',
-  blue: '#155E9A',
-  teal: '#0D9488',
-  tealLight: '#DDF4F2',
+  navy: '#0B2E59',
+  blue: '#0756A5',
+  teal: '#12A6A6',
+  tealLight: '#E8F5F5',
   white: '#FFFFFF',
-  lightBg: '#F4F7FA',
-  darkText: '#172B3A',
-  secondaryText: '#526575',
-  border: '#D9E2EC',
+  lightBg: '#F3F7FB',
+  darkText: '#172B4D',
+  secondaryText: '#526579',
+  border: '#DCE5EF',
 } as const
 
 

@@ -7,14 +7,14 @@ export function SiteFooter() {
   const currentYear = 2024
 
   return (
-    <footer className="bg-[#103B66] text-white">
+    <footer className="bg-[#0B2E59] text-white">
       <Container className="py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="min-w-0">
             <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg flex items-center justify-center shrink-0">
-                <span className="text-[#103B66] font-bold text-lg sm:text-xl">R</span>
+                <span className="text-[#0B2E59] font-bold text-lg sm:text-xl">R</span>
               </div>
               <span className="text-lg sm:text-xl font-bold break-words">{siteConfig.name}</span>
             </div>

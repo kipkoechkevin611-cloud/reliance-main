@@ -2724,10 +2724,11 @@ export function getProductsByCategory(category: string): Product[] {
 }
 
 export function getFeaturedProducts(): Product[] {
-  // Return only the specific vertical cylindrical tanks from TopTank Kenya, sorted by price high to low
+  // Return only vertical cylindrical tanks for homepage, sorted by capacity
   return products
-    .filter(p => p.category === 'vertical')
-    .sort((a, b) => (b.price || 0) - (a.price || 0))
+    .filter(p => p.category === 'vertical' && p.featured && p.capacityLiters > 0)
+    .sort((a, b) => a.capacityLiters - b.capacityLiters)
+    .slice(0, 6)
 }
 
 export function getRelatedProducts(currentProduct: Product, limit = 3): Product[] {
