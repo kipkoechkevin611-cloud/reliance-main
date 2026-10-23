@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { SlidersHorizontal, X, Droplets } from 'lucide-react'
 import { products } from '../../data/products'
 import { Button } from '../../components/ui/button'
@@ -11,6 +12,7 @@ import { Container } from '../../components/layout/container'
 import { PricingTable } from '../../components/pricing/pricing-table'
 
 export default function ProductsPage() {
+  const searchParams = useSearchParams()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all')
   const [selectedMaterial, setSelectedMaterial] = useState<Material | 'all'>('all')
@@ -22,6 +24,14 @@ export default function ProductsPage() {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 12
 
+  // Handle category from URL query parameter
+  useEffect(() => {
+    const categoryParam = searchParams.get('category')
+    if (categoryParam && categoryParam !== 'all') {
+      setSelectedCategory(categoryParam as ProductCategory)
+    }
+  }, [searchParams])
+
   const filteredProducts = useMemo(() => {
     const result = products.filter((product) => {
       const searchLower = searchQuery.toLowerCase()
@@ -30,7 +40,13 @@ export default function ProductsPage() {
         product.shortDescription.toLowerCase().includes(searchLower) ||
         product.capacityLiters.toString().includes(searchLower)
 
-      const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
+      // For vertical category, only show featured vertical tanks (same as homepage)
+      const matchesCategory = selectedCategory === 'all'
+        ? true
+        : selectedCategory === 'vertical'
+          ? product.category === 'vertical' && product.featured && product.capacityLiters > 0
+          : product.category === selectedCategory
+
       const matchesMaterial = selectedMaterial === 'all' || product.material === selectedMaterial
       const matchesPlacement = selectedPlacement === 'all' || product.placement === selectedPlacement
       const matchesUsage = selectedUsage === 'all' || product.usageTypes.includes(selectedUsage)
@@ -58,6 +74,11 @@ export default function ProductsPage() {
           return 0
       }
     })
+
+    // For vertical category, always sort by capacity ascending to match homepage
+    if (selectedCategory === 'vertical') {
+      result.sort((a, b) => a.capacityLiters - b.capacityLiters)
+    }
 
     return result
   }, [searchQuery, selectedCategory, selectedMaterial, selectedPlacement, selectedUsage, sortBy, priceRange])
@@ -107,7 +128,10 @@ export default function ProductsPage() {
                 type="text"
                 placeholder="Search products by name, capacity, or description..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value)
+                  setCurrentPage(1)
+                }}
                 className="text-center"
               />
             </div>
@@ -140,11 +164,15 @@ export default function ProductsPage() {
                   <select
                     id="filter-category"
                     value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value as ProductCategory | 'all')}
+                    onChange={(e) => {
+                      setSelectedCategory(e.target.value as ProductCategory | 'all')
+                      // Reset to page 1 when category changes
+                      setCurrentPage(1)
+                    }}
                     className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Categories</option>
-                    <option value="vertical">Vertical Tanks</option>
+                    <option value="vertical">Vertical Tanks (Featured)</option>
                     <option value="horizontal">Horizontal Tanks</option>
                     <option value="underground">Underground Tanks</option>
                     <option value="industrial">Industrial Tanks</option>
@@ -162,7 +190,10 @@ export default function ProductsPage() {
                   <select
                     id="filter-material"
                     value={selectedMaterial}
-                    onChange={(e) => setSelectedMaterial(e.target.value as Material | 'all')}
+                    onChange={(e) => {
+                      setSelectedMaterial(e.target.value as Material | 'all')
+                      setCurrentPage(1)
+                    }}
                     className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Materials</option>
@@ -179,7 +210,10 @@ export default function ProductsPage() {
                   <select
                     id="filter-placement"
                     value={selectedPlacement}
-                    onChange={(e) => setSelectedPlacement(e.target.value as Placement | 'all')}
+                    onChange={(e) => {
+                      setSelectedPlacement(e.target.value as Placement | 'all')
+                      setCurrentPage(1)
+                    }}
                     className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Placements</option>
@@ -194,7 +228,10 @@ export default function ProductsPage() {
                   <select
                     id="filter-usage"
                     value={selectedUsage}
-                    onChange={(e) => setSelectedUsage(e.target.value as UsageType | 'all')}
+                    onChange={(e) => {
+                      setSelectedUsage(e.target.value as UsageType | 'all')
+                      setCurrentPage(1)
+                    }}
                     className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Uses</option>
@@ -215,7 +252,10 @@ export default function ProductsPage() {
                     type="number"
                     placeholder="Min"
                     value={priceRange.min || ''}
-                    onChange={(e) => setPriceRange({ ...priceRange, min: Number(e.target.value) || 0 })}
+                    onChange={(e) => {
+                      setPriceRange({ ...priceRange, min: Number(e.target.value) || 0 })
+                      setCurrentPage(1)
+                    }}
                     className="w-full"
                   />
                   <span className="text-[#526579]">to</span>
@@ -223,7 +263,10 @@ export default function ProductsPage() {
                     type="number"
                     placeholder="Max"
                     value={priceRange.max || ''}
-                    onChange={(e) => setPriceRange({ ...priceRange, max: Number(e.target.value) || 500000 })}
+                    onChange={(e) => {
+                      setPriceRange({ ...priceRange, max: Number(e.target.value) || 500000 })
+                      setCurrentPage(1)
+                    }}
                     className="w-full"
                   />
                 </div>
@@ -237,8 +280,12 @@ export default function ProductsPage() {
             <select
               id="sort-by"
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'capacity-asc' | 'capacity-desc')}
-              className="h-10 px-3 py-2 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-sm"
+              onChange={(e) => {
+                setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'capacity-asc' | 'capacity-desc')
+                setCurrentPage(1)
+              }}
+              disabled={selectedCategory === 'vertical'}
+              className="h-10 px-3 py-2 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <option value="name-asc">Name (A-Z)</option>
               <option value="name-desc">Name (Z-A)</option>
@@ -247,6 +294,9 @@ export default function ProductsPage() {
               <option value="capacity-asc">Capacity (Low to High)</option>
               <option value="capacity-desc">Capacity (High to Low)</option>
             </select>
+            {selectedCategory === 'vertical' && (
+              <span className="text-xs text-[#526579] italic">Vertical tanks sorted by capacity</span>
+            )}
           </div>
 
           <div className="mt-6 text-base text-[#526579]">

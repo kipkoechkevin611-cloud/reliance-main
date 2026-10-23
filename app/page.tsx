@@ -60,7 +60,7 @@ export default function HomePage() {
 
             {/* Hero Image */}
             <div className="flex items-center justify-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[400px] lg:max-w-xl">
+              <div className="relative w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px]">
                 <div className="w-full rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src="/vertical.jpeg"
@@ -90,31 +90,31 @@ export default function HomePage() {
                 title: 'Vertical Tanks',
                 description: 'Above-ground cylindrical tanks',
                 icon: Droplets,
-                link: routes.products,
+                link: `${routes.products}?category=vertical`,
               },
               {
                 title: 'Horizontal Tanks',
                 description: 'Low-profile storage solutions',
                 icon: Droplets,
-                link: routes.products,
+                link: `${routes.products}?category=horizontal`,
               },
               {
                 title: 'Underground Tanks',
                 description: 'Space-saving below-ground options',
                 icon: Droplets,
-                link: routes.products,
+                link: `${routes.products}?category=underground`,
               },
               {
                 title: 'Industrial Storage',
                 description: 'Heavy-duty commercial tanks',
                 icon: Factory,
-                link: routes.products,
+                link: `${routes.products}?category=industrial`,
               },
               {
                 title: 'Agricultural',
                 description: 'Farm and irrigation tanks',
                 icon: Trees,
-                link: routes.products,
+                link: `${routes.products}?category=agricultural`,
               },
             ].map((category) => (
               <Link
