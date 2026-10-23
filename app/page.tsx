@@ -16,42 +16,42 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0B2E59] via-[#0756A5] to-[#0B2E59] text-white min-h-[500px] sm:min-h-[550px] md:min-h-[650px] lg:min-h-[750px] overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white min-h-[600px] lg:min-h-[700px] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-[400px] sm:w-[500px] lg:w-[600px] h-[400px] sm:h-[500px] lg:h-[600px] bg-[#12A6A6] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute top-0 right-0 w-[500px] lg:w-[600px] h-[500px] lg:h-[600px] bg-[#2563eb] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
         </div>
         <Container>
-          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center py-16 sm:py-20 md:py-24 lg:py-28">
+          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-16 lg:py-24">
             {/* Text Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="mb-5 sm:mb-6 md:mb-8 inline-flex items-center gap-2 sm:gap-2.5 bg-white/10 backdrop-blur-sm px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full border border-white/20">
-                <Droplets className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#12A6A6]" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold text-white">Kenya&apos;s #1 Water Storage Solutions</span>
+              <div className="mb-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <Droplets className="w-5 h-5 text-[#2563eb]" />
+                <span className="text-sm md:text-base font-semibold text-white">Kenya&apos;s #1 Water Storage Solutions</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-5 sm:mb-6 md:mb-8 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white">
+              <h1 className="font-bold mb-6 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white" style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)' }}>
                 Reliable Water Storage Solutions for Every Need
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#E8F5F5] mb-6 sm:mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-[#f1f5f9]" style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}>
                 Find the right water tank for your home, farm or business. Durable, affordable, and built to last.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-center lg:justify-start mb-6 sm:mb-8 md:mb-10">
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center lg:justify-start mb-8">
                 <Link href={routes.products} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="primary" size="lg" className="w-full sm:w-auto text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 min-h-[44px] sm:min-h-[48px] bg-[#12A6A6] hover:bg-[#0E8A8A] border-0">
+                  <Button variant="primary" size="lg" className="w-full sm:w-auto text-base px-8 py-3.5 min-h-[48px] bg-[#2563eb] hover:bg-[#1d4ed8] border-0 rounded-xl">
                     Shop Water Tanks
-                    <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
                 <Link href={routes.quote} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 min-h-[44px] sm:min-h-[48px]">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 text-base px-8 py-3.5 min-h-[48px] rounded-xl">
                     Get a Quote
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#12A6A6]" />
+              <div className="flex items-center justify-center lg:justify-start gap-3">
+                <Phone className="w-5 h-5 text-[#2563eb]" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-[#12A6A6] transition-colors break-words"
+                  className="text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-[#2563eb] transition-colors break-words"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
@@ -60,12 +60,14 @@ export default function HomePage() {
 
             {/* Hero Image */}
             <div className="flex items-center justify-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[250px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-xl">
-                <img
-                  src="/vertical.jpeg"
-                  alt="Vertical Cylindrical Water Tank"
-                  className="w-full h-auto object-contain drop-shadow-2xl"
-                />
+              <div className="relative w-full max-w-[400px] lg:max-w-xl">
+                <div className="w-full rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/vertical.jpeg"
+                    alt="Vertical Cylindrical Water Tank"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
