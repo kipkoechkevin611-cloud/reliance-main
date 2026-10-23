@@ -195,11 +195,11 @@ Thank you.`
               </div>
 
               {/* Client Details Form */}
-              <div className="bg-white p-5 md:p-6 rounded-2xl border border-[#e2e8f0]">
-                <h3 className="font-semibold text-[#0f172a] text-base md:text-lg mb-5" style={{ letterSpacing: '-0.02em' }}>Delivery Details</h3>
-                <div className="space-y-3 sm:space-4">
+              <div className="bg-white p-6 md:p-8 rounded-2xl border border-[#e2e8f0]">
+                <h3 className="font-semibold text-[#0f172a] text-base md:text-lg mb-6" style={{ letterSpacing: '-0.02em' }}>Delivery Details</h3>
+                <div className="space-y-5 sm:space-y-6">
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-sm sm:text-base font-medium text-[#0f172a] mb-3 sm:mb-4">
                       Full Name <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -207,11 +207,11 @@ Thank you.`
                       placeholder="Enter your full name"
                       value={clientDetails.fullName}
                       onChange={(e) => setClientDetails({ ...clientDetails, fullName: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[52px] sm:min-h-[56px] text-base sm:text-lg"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-sm sm:text-base font-medium text-[#0f172a] mb-3 sm:mb-4">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -219,11 +219,11 @@ Thank you.`
                       placeholder="Enter your phone number"
                       value={clientDetails.phoneNumber}
                       onChange={(e) => setClientDetails({ ...clientDetails, phoneNumber: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[52px] sm:min-h-[56px] text-base sm:text-lg"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-sm sm:text-base font-medium text-[#0f172a] mb-3 sm:mb-4">
                       Delivery Location <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -231,11 +231,11 @@ Thank you.`
                       placeholder="Enter your delivery location/region"
                       value={clientDetails.location}
                       onChange={(e) => setClientDetails({ ...clientDetails, location: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[52px] sm:min-h-[56px] text-base sm:text-lg"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-[#0B2E59] mb-2 sm:mb-2.5">
+                    <label className="block text-sm sm:text-base font-medium text-[#0f172a] mb-3 sm:mb-4">
                       Delivery Instructions (Optional)
                     </label>
                     <Input
@@ -243,26 +243,26 @@ Thank you.`
                       placeholder="Any special instructions or tank capacity notes"
                       value={clientDetails.notes}
                       onChange={(e) => setClientDetails({ ...clientDetails, notes: e.target.value })}
-                      className="w-full"
+                      className="w-full min-h-[52px] sm:min-h-[56px] text-base sm:text-lg"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="space-y-4">
+              <div className="space-y-4 sm:space-y-5">
                 <Button
                   onClick={handleWhatsAppOrder}
-                  className="w-full bg-[#12A6A6] hover:bg-[#0B7A70] text-white font-semibold"
+                  className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold min-h-[52px] sm:min-h-[56px] rounded-xl text-base sm:text-lg"
                   size="lg"
                 >
-                  <MessageCircle className="mr-2 w-5 h-5 sm:w-6 sm:h-6" />
+                  <MessageCircle className="mr-2 w-5 h-5" />
                   Order Now
                 </Button>
                 <Button
                   onClick={clearCart}
                   variant="ghost"
-                  className="w-full text-[#526579] hover:text-red-600"
+                  className="w-full text-[#64748b] hover:text-red-600 min-h-[52px] sm:min-h-[56px] rounded-xl text-base sm:text-lg"
                 >
                   Clear Cart
                 </Button>
