@@ -5,6 +5,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   textSize?: 'xs' | 'sm' | 'base' | 'lg'
+  className?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

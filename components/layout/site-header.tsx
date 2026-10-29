@@ -70,7 +70,7 @@ export function SiteHeader() {
             <Link href={routes.cart} className="relative p-2 text-dark hover:text-navy transition-colors">
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-navy text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                <span className="absolute -top-1 -right-1 bg-yellow text-navy text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
               )}
@@ -82,7 +82,7 @@ export function SiteHeader() {
             <Link href={routes.cart} className="relative p-2 text-dark hover:text-navy transition-colors">
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-navy text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                <span className="absolute -top-1 -right-1 bg-yellow text-navy text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
               )}

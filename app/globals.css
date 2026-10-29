@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Professional Corporate Colours */
-  --background: #F5F9FC;
-  --foreground: #1F2937;
+  /* Premium Reliance Colour Palette */
+  --background: #F1F7FC;
+  --foreground: #172B3A;
   --navy: #063B78;
   --navy-light: #0B5EA8;
-  --blue: #1E88E5;
+  --blue: #168AAD;
   --blue-light: #3BA4ED;
   --yellow: #FFD21F;
   --yellow-light: #FFE066;
   --white: #FFFFFF;
-  --dark: #1F2937;
-  --secondary: #64748B;
-  --border: #D6E2EC;
+  --dark: #172B3A;
+  --secondary: #536579;
+  --border: #DCE5EE;
   --success: #15803D;
 }
 
@@ -97,14 +97,14 @@ p {
 
 /* Section Spacing */
 section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
 

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
-      <body className="min-h-screen flex flex-col overflow-x-hidden bg-[#f8fafc]">
+      <body className="min-h-screen flex flex-col overflow-x-hidden bg-background">
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <CartProvider>
             <SiteHeader />

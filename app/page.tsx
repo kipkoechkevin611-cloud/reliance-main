@@ -16,39 +16,43 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-white via-background to-white text-dark overflow-hidden">
+      <section className="relative bg-gradient-to-br from-navy via-navy-light to-navy text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue rounded-full blur-3xl -translate-x-1/3 translate-y-1/3"></div>
+        </div>
         <Container>
-          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 lg:py-24">
+          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-24 lg:py-32">
             {/* Text Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="mb-6 inline-flex items-center gap-2 bg-yellow/10 px-4 py-2 rounded-full border border-yellow/20">
-                <Droplets className="w-5 h-5 text-navy" />
-                <span className="text-sm md:text-base font-semibold text-navy">Kenya&apos;s Trusted Water Storage Solutions</span>
+              <div className="mb-6 inline-flex items-center gap-2 bg-yellow/20 px-4 py-2 rounded-full border border-yellow/30">
+                <Droplets className="w-5 h-5 text-yellow" />
+                <span className="text-sm md:text-base font-semibold text-white">Kenya&apos;s Trusted Water Storage Solutions</span>
               </div>
-              <h1 className="font-bold mb-6 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-navy text-hero">
-                Reliable Water Storage Solutions for Every Need
+              <h1 className="font-bold mb-6 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white text-hero">
+                Reliable Water Storage Solutions for <span className="text-yellow">Every Need</span>
               </h1>
-              <p className="mb-8 leading-relaxed max-w-[550px] mx-auto lg:mx-0 text-secondary text-base lg:text-lg">
-                Durable water tanks for homes, farms, businesses, industries and institutions across Kenya. Built to last with premium quality materials.
+              <p className="mb-8 leading-relaxed max-w-[550px] mx-auto lg:mx-0 text-gray-200 text-base lg:text-lg">
+                Discover durable water storage solutions for homes, farms, businesses, and industrial applications.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center lg:justify-start mb-8">
                 <Link href={routes.products} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                  <Button variant="primary" size="lg" className="w-full sm:w-auto bg-yellow text-navy hover:bg-yellow-light">
                     Shop Water Tanks
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
                 <Link href={routes.quote} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto bg-white/10 text-white border-white/30 hover:bg-white/20">
                     Get a Quote
                   </Button>
                 </Link>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <Phone className="w-5 h-5 text-navy" />
+                <Phone className="w-5 h-5 text-yellow" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-xl md:text-2xl lg:text-3xl font-bold text-navy hover:text-blue transition-colors break-words"
+                  className="text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-yellow transition-colors break-words"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
@@ -57,8 +61,8 @@ export default function HomePage() {
 
             {/* Hero Image */}
             <div className="flex items-center justify-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] lg:max-w-[550px]">
-                <div className="w-full rounded-2xl overflow-hidden shadow-lift bg-white p-8">
+              <div className="relative w-full max-w-[500px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[650px]">
+                <div className="w-full rounded-2xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm p-8">
                   <img
                     src="/vertical.jpeg"
                     alt="Vertical Cylindrical Water Tank"
@@ -72,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Shop by Category */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-20 lg:py-24 bg-background">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
             <h2 className="text-h2 text-navy leading-tight">Shop by Category</h2>
@@ -117,7 +121,7 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.link}
-                className="bg-background rounded-2xl p-6 hover:shadow-lift transition-shadow group flex flex-col h-full min-w-0 border border-border"
+                className="bg-white rounded-2xl p-6 hover:shadow-lift transition-shadow group flex flex-col h-full min-w-0 border border-border"
               >
                 <div className="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-navy/20 transition-colors shrink-0">
                   <category.icon className="w-7 h-7 text-navy" />
@@ -145,7 +149,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Reliance Tank */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-20 lg:py-24 bg-background">
         <Container>
           <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
             Why Choose Reliance Tank?
@@ -154,7 +158,7 @@ export default function HomePage() {
             {features.map((feature) => {
               const Icon = getIcon(feature.icon)
               return (
-                <div key={feature.id} className="p-6 flex flex-col h-full items-start gap-4 min-w-0 bg-background border border-border rounded-2xl shadow-soft hover:shadow-medium transition-shadow">
+                <div key={feature.id} className="p-6 flex flex-col h-full items-start gap-4 min-w-0 bg-white border border-border rounded-2xl shadow-soft hover:shadow-medium transition-shadow">
                   <div className="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center shrink-0">
                     <Icon className="w-7 h-7 text-navy" />
                   </div>
@@ -168,7 +172,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-20 lg:py-24 bg-white">
         <Container>
           <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
             Our Product Categories
@@ -209,7 +213,7 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.link}
-                className="bg-white rounded-2xl p-6 shadow-soft hover:shadow-medium transition-shadow group flex flex-col h-full min-w-0 border border-border"
+                className="bg-background rounded-2xl p-6 shadow-soft hover:shadow-medium transition-shadow group flex flex-col h-full min-w-0 border border-border"
               >
                 <div className="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-navy/20 transition-colors shrink-0">
                   <category.icon className="w-7 h-7 text-navy" />
@@ -239,7 +243,7 @@ export default function HomePage() {
               { title: 'Industrial', icon: Wrench, description: 'Manufacturing, processing, industrial facilities' },
             ].map((app) => (
               <div key={app.title} className="bg-white rounded-2xl p-6 text-center shadow-soft hover:shadow-medium transition-shadow flex flex-col h-full min-w-0">
-                <div className="w-14 h-14 bg-background rounded-full flex items-center justify-center mx-auto mb-4 shrink-0">
+                <div className="w-14 h-14 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-4 shrink-0">
                   <app.icon className="w-7 h-7 text-navy" />
                 </div>
                 <h3 className="font-semibold text-navy mb-2 text-base leading-tight break-words">{app.title}</h3>
@@ -268,7 +272,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-20 lg:py-24 bg-background">
         <Container>
           <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
             Frequently Asked Questions

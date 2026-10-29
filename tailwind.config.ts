@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary Corporate Colours
+        // Premium Reliance Colour Palette
         navy: {
           DEFAULT: '#063B78',
           light: '#0B5EA8',
         },
         blue: {
-          DEFAULT: '#1E88E5',
+          DEFAULT: '#168AAD',
           light: '#3BA4ED',
         },
         yellow: {
@@ -24,12 +24,12 @@ const config: Config = {
         },
         // Surface Colours
         white: '#FFFFFF',
-        background: '#F5F9FC',
+        background: '#F1F7FC',
         // Text Colours
-        dark: '#1F2937',
-        secondary: '#64748B',
+        dark: '#172B3A',
+        secondary: '#536579',
         // UI Colours
-        border: '#D6E2EC',
+        border: '#DCE5EE',
         success: '#15803D',
       },
       spacing: {
