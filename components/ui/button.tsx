@@ -15,18 +15,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   return (
     <button
       className={cn(
-        'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+        'inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]',
         {
-          'bg-[#0D9488] text-white hover:bg-[#0b7d72] focus-visible:ring-[#0D9488]': variant === 'primary',
-          'bg-[#103B66] text-white hover:bg-[#0c2e52] focus-visible:ring-[#103B66]': variant === 'secondary',
-          'border-2 border-[#103B66] text-[#103B66] hover:bg-[#103B66] hover:text-white focus-visible:ring-[#103B66]':
-            variant === 'outline',
-          'text-[#172B3A] hover:bg-[#F4F7FA] focus-visible:ring-[#172B3A]': variant === 'ghost',
+          'bg-navy text-white hover:bg-navy-light focus-visible:ring-navy shadow-soft': variant === 'primary',
+          'bg-white text-navy border-2 border-navy hover:bg-blue-light focus-visible:ring-navy': variant === 'secondary' || variant === 'outline',
+          'text-dark hover:bg-background focus-visible:ring-dark': variant === 'ghost',
         },
         {
-          'h-9 px-4': size === 'sm',
-          'h-11 px-6': size === 'md',
-          'h-14 px-8': size === 'lg',
+          'h-10 px-5 text-sm': size === 'sm',
+          'h-12 px-6 text-base': size === 'md',
+          'h-14 px-8 text-lg': size === 'lg',
         },
         {
           'text-xs': actualTextSize === 'xs',

@@ -14,35 +14,40 @@ export function SiteHeader() {
   const { itemCount } = useCart()
 
   return (
-    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-[12px] border-b border-[#e2e8f0] shadow-sm">
+    <header className="sticky top-0 z-50 bg-white shadow-soft backdrop-blur-sm">
       <Container>
-        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 min-w-0">
+        <div className="flex items-center justify-between h-20 min-w-0">
           {/* Logo */}
-          <Link href={routes.home} className="flex items-center space-x-2 sm:space-x-3 min-w-0 shrink">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0f172a] rounded-lg flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-lg sm:text-xl md:text-2xl">R</span>
+          <Link href={routes.home} className="flex items-center space-x-3 min-w-0 shrink">
+            <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-2xl">R</span>
             </div>
-            <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[#0f172a] hidden sm:block truncate">
+            <span className="text-xl lg:text-2xl font-bold text-navy hidden sm:block truncate">
               {siteConfig.name}
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 shrink-0">
-            <Link href={routes.home} className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-sm md:text-base whitespace-nowrap">
+          <nav className="hidden md:flex items-center gap-8 shrink-0">
+            <Link href={routes.home} className="text-dark hover:text-blue transition-colors font-medium text-base whitespace-nowrap relative group">
               Home
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href={routes.products} className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-sm md:text-base whitespace-nowrap">
+            <Link href={routes.products} className="text-dark hover:text-blue transition-colors font-medium text-base whitespace-nowrap relative group">
               Shop Tanks
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href={routes.calculator} className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-sm md:text-base whitespace-nowrap">
+            <Link href={routes.calculator} className="text-dark hover:text-blue transition-colors font-medium text-base whitespace-nowrap relative group">
               Calculator
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href={routes.about} className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-sm md:text-base whitespace-nowrap">
+            <Link href={routes.about} className="text-dark hover:text-blue transition-colors font-medium text-base whitespace-nowrap relative group">
               About Us
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow transition-all duration-200 group-hover:w-full"></span>
             </Link>
-            <Link href={routes.contact} className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-sm md:text-base whitespace-nowrap">
+            <Link href={routes.contact} className="text-dark hover:text-blue transition-colors font-medium text-base whitespace-nowrap relative group">
               Contact
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow transition-all duration-200 group-hover:w-full"></span>
             </Link>
           </nav>
 
@@ -51,21 +56,21 @@ export function SiteHeader() {
             {siteConfig.contact.phone && (
               <a
                 href={`tel:${siteConfig.contact.phone}`}
-                className="flex items-center space-x-2 text-[#64748b] hover:text-[#2563eb] transition-colors"
+                className="flex items-center space-x-2 text-secondary hover:text-navy transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span className="text-sm md:text-base font-medium hidden xl:inline">{siteConfig.contact.phoneDisplay}</span>
+                <span className="text-base font-medium hidden xl:inline">{siteConfig.contact.phoneDisplay}</span>
               </a>
             )}
             <Link href={routes.quote} className="shrink-0">
-              <Button variant="primary" size="lg" className="text-sm md:text-base">
+              <Button variant="primary" size="md" className="text-base">
                 Request Quote
               </Button>
             </Link>
-            <Link href={routes.cart} className="relative p-2 text-[#0f172a] hover:text-[#2563eb] transition-colors">
+            <Link href={routes.cart} className="relative p-2 text-dark hover:text-navy transition-colors">
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#2563eb] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                <span className="absolute -top-1 -right-1 bg-navy text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
               )}
@@ -74,17 +79,17 @@ export function SiteHeader() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2 shrink-0">
-            <Link href={routes.cart} className="relative p-2 text-[#0f172a] hover:text-[#2563eb] transition-colors">
+            <Link href={routes.cart} className="relative p-2 text-dark hover:text-navy transition-colors">
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#2563eb] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
+                <span className="absolute -top-1 -right-1 bg-navy text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
               )}
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#0f172a] hover:text-[#2563eb] w-11 h-11 flex items-center justify-center"
+              className="p-2 text-dark hover:text-navy w-11 h-11 flex items-center justify-center"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -94,57 +99,57 @@ export function SiteHeader() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-6 border-t border-[#e2e8f0]">
+          <nav className="md:hidden py-6 border-t border-border">
             <div className="flex flex-col space-y-4">
               <Link
                 href={routes.home}
-                className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-base py-2"
+                className="text-dark hover:text-navy transition-colors font-medium text-lg py-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href={routes.products}
-                className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-base py-2"
+                className="text-dark hover:text-navy transition-colors font-medium text-lg py-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Shop Tanks
               </Link>
               <Link
                 href={routes.calculator}
-                className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-base py-2"
+                className="text-dark hover:text-navy transition-colors font-medium text-lg py-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Calculator
               </Link>
               <Link
                 href={routes.about}
-                className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-base py-2"
+                className="text-dark hover:text-navy transition-colors font-medium text-lg py-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href={routes.contact}
-                className="text-[#0f172a] hover:text-[#2563eb] transition-colors font-medium text-base py-2"
+                className="text-dark hover:text-navy transition-colors font-medium text-lg py-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
               </Link>
-              <div className="pt-4 border-t border-[#e2e8f0] flex flex-col space-y-3">
+              <div className="pt-4 border-t border-border flex flex-col space-y-3">
                 {siteConfig.contact.whatsapp && (
                   <a
                     href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white py-3 rounded-lg min-h-[48px] transition-colors"
+                    className="flex items-center justify-center space-x-2 bg-navy hover:bg-navy-light text-white py-4 rounded-xl min-h-[52px] transition-colors"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    <span className="font-medium text-base">WhatsApp</span>
+                    <span className="font-medium text-lg">WhatsApp</span>
                   </a>
                 )}
                 <Link href={routes.quote} onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="primary" size="lg" className="w-full min-h-[48px]">
+                  <Button variant="primary" size="lg" className="w-full min-h-[52px]">
                     Request Quote
                   </Button>
                 </Link>

@@ -7,22 +7,22 @@ export function SiteFooter() {
   const currentYear = 2024
 
   return (
-    <footer className="bg-[#0B2E59] text-white">
-      <Container className="py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
+    <footer className="bg-navy text-white">
+      <Container className="py-16 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="min-w-0">
-            <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-lg flex items-center justify-center shrink-0">
-                <span className="text-[#0B2E59] font-bold text-lg sm:text-xl">R</span>
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0">
+                <span className="text-navy font-bold text-xl">R</span>
               </div>
-              <span className="text-lg sm:text-xl font-bold break-words">{siteConfig.name}</span>
+              <span className="text-xl font-bold break-words">{siteConfig.name}</span>
             </div>
-            <p className="text-[#B8C5D0] text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
-              Reliable water storage solutions for residential, agricultural, commercial, and industrial applications.
+            <p className="text-gray-300 text-base mb-6 leading-relaxed">
+              Reliable water storage solutions for residential, agricultural, commercial, and industrial applications across Kenya.
             </p>
             {siteConfig.contact.address && (
-              <address className="text-[#B8C5D0] text-sm sm:text-base not-italic leading-relaxed break-words">
+              <address className="text-gray-300 text-base not-italic leading-relaxed break-words">
                 {siteConfig.contact.address}
               </address>
             )}
@@ -30,31 +30,31 @@ export function SiteFooter() {
 
           {/* Products */}
           <div className="min-w-0">
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Products</h3>
-            <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
+            <h3 className="font-semibold mb-6 text-lg">Products</h3>
+            <ul className="space-y-4 text-base">
               <li>
-                <Link href={routes.products} className="text-[#B8C5D0] hover:text-white transition-colors">
-                  Vertical Tanks
+                <Link href={`${routes.products}?category=vertical-cylindrical`} className="text-gray-300 hover:text-white transition-colors">
+                  Vertical Cylindrical Tanks
                 </Link>
               </li>
               <li>
-                <Link href={routes.products} className="text-[#B8C5D0] hover:text-white transition-colors">
-                  Horizontal Tanks
+                <Link href={`${routes.products}?category=nestable`} className="text-gray-300 hover:text-white transition-colors">
+                  Nestable Tanks
                 </Link>
               </li>
               <li>
-                <Link href={routes.products} className="text-[#B8C5D0] hover:text-white transition-colors">
-                  Underground Tanks
+                <Link href={`${routes.products}?category=conical-hopper`} className="text-gray-300 hover:text-white transition-colors">
+                  Conical Hopper Tanks
                 </Link>
               </li>
               <li>
-                <Link href={routes.products} className="text-[#B8C5D0] hover:text-white transition-colors">
-                  Industrial Tanks
+                <Link href={`${routes.products}?category=underground-spherical`} className="text-gray-300 hover:text-white transition-colors">
+                  Underground Spherical Tanks
                 </Link>
               </li>
               <li>
-                <Link href={routes.products} className="text-[#B8C5D0] hover:text-white transition-colors">
-                  Custom Fabrication
+                <Link href={`${routes.products}?category=horizontal-septic`} className="text-gray-300 hover:text-white transition-colors">
+                  Horizontal Septic Tanks
                 </Link>
               </li>
             </ul>
@@ -62,30 +62,30 @@ export function SiteFooter() {
 
           {/* Company */}
           <div className="min-w-0">
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Company</h3>
-            <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
+            <h3 className="font-semibold mb-6 text-lg">Company</h3>
+            <ul className="space-y-4 text-base">
               <li>
-                <Link href={routes.about} className="text-[#B8C5D0] hover:text-white transition-colors">
+                <Link href={routes.about} className="text-gray-300 hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href={routes.quality} className="text-[#B8C5D0] hover:text-white transition-colors">
+                <Link href={routes.quality} className="text-gray-300 hover:text-white transition-colors">
                   Quality Standards
                 </Link>
               </li>
               <li>
-                <Link href={routes.contact} className="text-[#B8C5D0] hover:text-white transition-colors">
+                <Link href={routes.contact} className="text-gray-300 hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href={routes.quote} className="text-[#B8C5D0] hover:text-white transition-colors">
+                <Link href={routes.quote} className="text-gray-300 hover:text-white transition-colors">
                   Request Quote
                 </Link>
               </li>
               <li>
-                <Link href={routes.privacy} className="text-[#B8C5D0] hover:text-white transition-colors">
+                <Link href={routes.privacy} className="text-gray-300 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
@@ -94,13 +94,13 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div className="min-w-0">
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Contact</h3>
-            <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
+            <h3 className="font-semibold mb-6 text-lg">Contact</h3>
+            <ul className="space-y-4 text-base">
               {siteConfig.contact.phone && (
                 <li>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
-                    className="text-[#B8C5D0] hover:text-white transition-colors break-words"
+                    className="text-gray-300 hover:text-white transition-colors break-words"
                   >
                     {siteConfig.contact.phoneDisplay}
                   </a>
@@ -110,7 +110,7 @@ export function SiteFooter() {
                 <li>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="text-[#B8C5D0] hover:text-white transition-colors break-words"
+                    className="text-gray-300 hover:text-white transition-colors break-words"
                   >
                     {siteConfig.contact.email}
                   </a>
@@ -122,20 +122,20 @@ export function SiteFooter() {
                     href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#B8C5D0] hover:text-white transition-colors break-words"
+                    className="text-gray-300 hover:text-white transition-colors break-words"
                   >
                     WhatsApp: {siteConfig.contact.phoneDisplay}
                   </a>
                 </li>
               )}
               {siteConfig.contact.hours && (
-                <li className="text-[#B8C5D0]">{siteConfig.contact.hours}</li>
+                <li className="text-gray-300">{siteConfig.contact.hours}</li>
               )}
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-[#526575] mt-8 sm:mt-10 pt-6 sm:pt-8 text-center text-sm sm:text-base text-[#B8C5D0]">
+        <div className="border-t border-white/20 mt-12 pt-8 text-center text-base text-gray-300">
           <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
         </div>
       </Container>
