@@ -16,13 +16,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-soft backdrop-blur-sm">
       <Container>
-        <div className="flex items-center justify-between h-20 min-w-0">
+        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20 min-w-0">
           {/* Logo */}
-          <Link href={routes.home} className="flex items-center space-x-3 min-w-0 shrink">
-            <div className="w-12 h-12 bg-navy rounded-xl flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-2xl">R</span>
+          <Link href={routes.home} className="flex items-center space-x-2 sm:space-x-3 min-w-0 shrink">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-navy rounded-xl flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-xl sm:text-2xl">R</span>
             </div>
-            <span className="text-xl lg:text-2xl font-bold text-navy hidden sm:block truncate">
+            <span className="text-lg sm:text-xl lg:text-2xl font-bold text-navy hidden sm:block truncate">
               {siteConfig.name}
             </span>
           </Link>
@@ -78,8 +78,8 @@ export function SiteHeader() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2 shrink-0">
-            <Link href={routes.cart} className="relative p-2 text-dark hover:text-navy transition-colors">
+          <div className="md:hidden flex items-center gap-1 sm:gap-2 shrink-0">
+            <Link href={routes.cart} className="relative p-1.5 sm:p-2 text-dark hover:text-navy transition-colors">
               <ShoppingBag className="w-5 h-5" />
               {itemCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-yellow text-navy text-xs w-5 h-5 rounded-full flex items-center justify-center font-medium">
@@ -89,10 +89,10 @@ export function SiteHeader() {
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-dark hover:text-navy w-11 h-11 flex items-center justify-center"
+              className="p-1.5 sm:p-2 text-dark hover:text-navy w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>

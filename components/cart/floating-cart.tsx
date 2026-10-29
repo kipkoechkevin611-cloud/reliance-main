@@ -9,15 +9,15 @@ export function FloatingCart() {
   const { itemCount } = useCart()
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
+    <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 z-40">
       <Link
         href={routes.cart}
-        className="relative w-14 h-14 sm:w-16 sm:h-16 bg-[#12A6A6] hover:bg-[#0B7D73] text-white rounded-full shadow-lg flex items-center justify-center transition-colors"
+        className="relative w-12 h-12 sm:w-14 sm:h-14 bg-navy hover:bg-navy-light text-white rounded-full shadow-lg flex items-center justify-center transition-colors"
         aria-label="Open cart"
       >
-        <ShoppingBag className="w-6 h-6 sm:w-7 sm:h-7" />
+        <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
         {itemCount > 0 && (
-          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">
+          <span className="absolute -top-1 -right-1 bg-yellow text-navy text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
             {itemCount}
           </span>
         )}
