@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative text-white overflow-hidden min-h-[calc(100vh-80px)] lg:min-h-[calc(100vh-80px)]">
+      <section className="relative text-white overflow-hidden min-h-[500px] lg:min-h-[600px]">
         {/* Background Image with Blur */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110" style={{ backgroundImage: 'url("/heroes page background.jpe")', filter: 'blur(2px)' }}></div>
