@@ -40,12 +40,9 @@ export default function ProductsPage() {
         product.shortDescription.toLowerCase().includes(searchLower) ||
         product.capacityLiters.toString().includes(searchLower)
 
-      // For vertical category, only show featured vertical tanks (same as homepage)
       const matchesCategory = selectedCategory === 'all'
         ? true
-        : selectedCategory === 'vertical'
-          ? product.category === 'vertical' && product.featured && product.capacityLiters > 0
-          : product.category === selectedCategory
+        : product.category === selectedCategory
 
       const matchesMaterial = selectedMaterial === 'all' || product.material === selectedMaterial
       const matchesPlacement = selectedPlacement === 'all' || product.placement === selectedPlacement
@@ -75,8 +72,8 @@ export default function ProductsPage() {
       }
     })
 
-    // For vertical category, always sort by capacity ascending to match homepage
-    if (selectedCategory === 'vertical') {
+    // For vertical-cylindrical category, always sort by capacity ascending to match homepage
+    if (selectedCategory === 'vertical-cylindrical') {
       result.sort((a, b) => a.capacityLiters - b.capacityLiters)
     }
 
@@ -172,16 +169,11 @@ export default function ProductsPage() {
                     className="w-full min-w-0 h-11 px-3.5 py-2.5 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-base"
                   >
                     <option value="all">All Categories</option>
-                    <option value="vertical">Vertical Tanks (Featured)</option>
-                    <option value="horizontal">Horizontal Tanks</option>
-                    <option value="underground">Underground Tanks</option>
-                    <option value="industrial">Industrial Tanks</option>
-                    <option value="agricultural">Agricultural Tanks</option>
-                    <option value="sanitation">Sanitation</option>
-                    <option value="road-safety">Road Safety</option>
-                    <option value="lifestyle">Lifestyle</option>
-                    <option value="bins">Bins</option>
-                    <option value="custom">Custom Fabrication</option>
+                    <option value="vertical-cylindrical">Vertical Cylindrical Tanks</option>
+                    <option value="nestable">Nestable Tanks</option>
+                    <option value="conical-hopper">Conical Hopper Tanks</option>
+                    <option value="underground-spherical">Underground Spherical Tanks</option>
+                    <option value="horizontal-septic">Horizontal Septic Tanks</option>
                   </select>
                 </div>
 
@@ -284,7 +276,7 @@ export default function ProductsPage() {
                 setSortBy(e.target.value as 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'capacity-asc' | 'capacity-desc')
                 setCurrentPage(1)
               }}
-              disabled={selectedCategory === 'vertical'}
+              disabled={selectedCategory === 'vertical-cylindrical'}
               className="h-10 px-3 py-2 rounded-md border border-[#DCE5EF] bg-white text-[#172B4D] focus:outline-none focus:ring-2 focus:ring-[#12A6A6] text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <option value="name-asc">Name (A-Z)</option>
@@ -294,8 +286,8 @@ export default function ProductsPage() {
               <option value="capacity-asc">Capacity (Low to High)</option>
               <option value="capacity-desc">Capacity (High to Low)</option>
             </select>
-            {selectedCategory === 'vertical' && (
-              <span className="text-xs text-[#526579] italic">Vertical tanks sorted by capacity</span>
+            {selectedCategory === 'vertical-cylindrical' && (
+              <span className="text-xs text-[#526579] italic">Vertical cylindrical tanks sorted by capacity</span>
             )}
           </div>
 

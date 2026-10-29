@@ -87,34 +87,34 @@ export default function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
             {[
               {
-                title: 'Vertical Tanks',
+                title: 'Vertical Cylindrical',
                 description: 'Above-ground cylindrical tanks',
                 icon: Droplets,
-                link: `${routes.products}?category=vertical`,
+                link: `${routes.products}?category=vertical-cylindrical`,
               },
               {
-                title: 'Horizontal Tanks',
-                description: 'Low-profile storage solutions',
+                title: 'Nestable Tanks',
+                description: 'Space-saving nestable design',
                 icon: Droplets,
-                link: `${routes.products}?category=horizontal`,
+                link: `${routes.products}?category=nestable`,
               },
               {
-                title: 'Underground Tanks',
-                description: 'Space-saving below-ground options',
+                title: 'Conical Hopper',
+                description: 'Complete drainage tanks',
                 icon: Droplets,
-                link: `${routes.products}?category=underground`,
+                link: `${routes.products}?category=conical-hopper`,
               },
               {
-                title: 'Industrial Storage',
-                description: 'Heavy-duty commercial tanks',
-                icon: Factory,
-                link: `${routes.products}?category=industrial`,
+                title: 'Underground Spherical',
+                description: 'Space-efficient below-ground',
+                icon: Droplets,
+                link: `${routes.products}?category=underground-spherical`,
               },
               {
-                title: 'Agricultural',
-                description: 'Farm and irrigation tanks',
-                icon: Trees,
-                link: `${routes.products}?category=agricultural`,
+                title: 'Horizontal Septic',
+                description: 'Wastewater treatment tanks',
+                icon: Droplets,
+                link: `${routes.products}?category=horizontal-septic`,
               },
             ].map((category) => (
               <Link
@@ -179,34 +179,34 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
-                title: 'Industrial Storage',
-                description: 'Heavy-duty steel tanks for industrial applications',
-                icon: Factory,
-                link: routes.products,
-              },
-              {
-                title: 'Agricultural Storage',
-                description: 'UV-stabilized poly tanks for farms and irrigation',
-                icon: Trees,
-                link: routes.products,
-              },
-              {
-                title: 'Underground Tanks',
-                description: 'Reinforced concrete tanks for below-ground installation',
-                icon: Wrench,
-                link: routes.products,
-              },
-              {
-                title: 'Rainwater Harvesting',
-                description: 'Specialized tanks for water collection systems',
+                title: 'Vertical Cylindrical Tanks',
+                description: 'Standard above-ground water storage solutions',
                 icon: Droplets,
-                link: routes.products,
+                link: `${routes.products}?category=vertical-cylindrical`,
               },
               {
-                title: 'Custom Fabrication',
-                description: 'Bespoke tank design and manufacturing',
+                title: 'Nestable Tanks',
+                description: 'Efficient shipping and storage design',
+                icon: Droplets,
+                link: `${routes.products}?category=nestable`,
+              },
+              {
+                title: 'Conical Hopper Tanks',
+                description: 'Industrial tanks with complete drainage',
+                icon: Factory,
+                link: `${routes.products}?category=conical-hopper`,
+              },
+              {
+                title: 'Underground Spherical Tanks',
+                description: 'Space-efficient below-ground storage',
                 icon: Wrench,
-                link: routes.products,
+                link: `${routes.products}?category=underground-spherical`,
+              },
+              {
+                title: 'Horizontal Septic Tanks',
+                description: 'Wastewater treatment and sewage management',
+                icon: Wrench,
+                link: `${routes.products}?category=horizontal-septic`,
               },
             ].map((category) => (
               <Link

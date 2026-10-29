@@ -20,7 +20,6 @@ export const pricing2026: PricingItem[] = [
   { capacity: 6000, price: 33500 },
   { capacity: 8000, price: 42500 },
   { capacity: 10000, price: 59500 },
-  { capacity: 12000, price: 75000 },
   { capacity: 15000, price: 92000 },
   { capacity: 16000, price: 96500 },
   { capacity: 20000, price: 126500 },

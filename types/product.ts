@@ -1,15 +1,9 @@
 export type ProductCategory =
-  | 'vertical'
-  | 'horizontal'
-  | 'underground'
-  | 'industrial'
-  | 'agricultural'
-  | 'rainwater-harvesting'
-  | 'custom'
-  | 'sanitation'
-  | 'road-safety'
-  | 'lifestyle'
-  | 'bins'
+  | 'vertical-cylindrical'
+  | 'nestable'
+  | 'conical-hopper'
+  | 'underground-spherical'
+  | 'horizontal-septic'
 
 export type Material = 'steel' | 'polyethylene' | 'concrete' | 'fiberglass' | 'custom'
 
@@ -48,6 +42,7 @@ export interface Product {
   specifications: Record<string, string>
   images: string[]
   price?: number
+  referenceOffer?: number
   priceStatus?: PriceStatus
   availability: 'in-stock' | 'made-to-order' | 'contact-for-availability'
   warranty?: string
