@@ -24,17 +24,17 @@ export default function HomePage() {
         </div>
         
         <Container>
-          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 lg:py-28">
+          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 items-center py-20 lg:py-28">
             {/* Text Content */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
+            <div className="text-center lg:text-left max-w-3xl mx-auto">
               <div className="mb-8 inline-flex items-center gap-2 bg-yellow/20 px-6 py-3 rounded-full border border-yellow/30 backdrop-blur-sm">
                 <Droplets className="w-6 h-6 text-yellow" />
                 <span className="text-base md:text-lg font-semibold text-white">Kenya&apos;s Trusted Water Storage Solutions</span>
               </div>
-              <h1 className="font-bold mb-8 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
+              <h1 className="font-bold mb-8 leading-tight break-rows text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
                 Reliable Water Storage Solutions for <span className="text-yellow">Every Need</span>
               </h1>
-              <p className="mb-10 leading-relaxed max-w-[600px] mx-auto lg:mx-0 text-gray-100 text-lg lg:text-xl">
+              <p className="mb-10 leading-relaxed max-w-[600px] mx-auto text-gray-100 text-lg lg:text-xl">
                 Discover durable water storage solutions for homes, farms, businesses, and industrial applications.
               </p>
               <div className="flex flex-col sm:flex-row gap-5 items-stretch sm:items-center justify-center lg:justify-start mb-10">
@@ -58,19 +58,6 @@ export default function HomePage() {
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
-              </div>
-            </div>
-
-            {/* Hero Image */}
-            <div className="flex items-center justify-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[500px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[650px]">
-                <div className="w-full rounded-2xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm p-8 border border-white/20">
-                  <img
-                    src="/vertical.jpeg"
-                    alt="Vertical Cylindrical Water Tank"
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
               </div>
             </div>
           </div>
