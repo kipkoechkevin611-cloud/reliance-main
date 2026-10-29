@@ -18,10 +18,7 @@ export function SiteHeader() {
       <Container>
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20 min-w-0">
           {/* Logo */}
-          <Link href={routes.home} className="flex items-center space-x-2 sm:space-x-3 min-w-0 shrink">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-navy rounded-xl flex items-center justify-center shrink-0">
-              <span className="text-white font-bold text-xl sm:text-2xl">R</span>
-            </div>
+          <Link href={routes.home} className="flex items-center min-w-0 shrink">
             <span className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-navy truncate">
               {siteConfig.name}
             </span>
