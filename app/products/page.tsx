@@ -358,13 +358,6 @@ export default function ProductsPage() {
           </>
         )}
 
-        {/* 2026 Price List */}
-        <div className="mt-12 md:mt-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0B2E59] mb-6 md:mb-8 text-center">
-            2026 Price List
-          </h2>
-          <PricingTable />
-        </div>
       </Container>
     </div>
   )
