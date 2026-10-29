@@ -16,20 +16,25 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center bg-no-repeat text-white overflow-hidden" style={{ backgroundImage: 'url("/heroes page.jpe")' }}>
-        <div className="absolute inset-0 bg-navy/80"></div>
+      <section className="relative text-white overflow-hidden min-h-[600px] lg:min-h-[700px]">
+        {/* Blurred Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110" style={{ backgroundImage: 'url("/heroes page.jpe")', filter: 'blur(6px)' }}></div>
+          <div className="absolute inset-0 bg-navy/75"></div>
+        </div>
+        
         <Container>
-          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-24 lg:py-32">
+          <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 lg:py-28">
             {/* Text Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="mb-8 inline-flex items-center gap-2 bg-yellow/20 px-6 py-3 rounded-full border border-yellow/30">
+              <div className="mb-8 inline-flex items-center gap-2 bg-yellow/20 px-6 py-3 rounded-full border border-yellow/30 backdrop-blur-sm">
                 <Droplets className="w-6 h-6 text-yellow" />
                 <span className="text-base md:text-lg font-semibold text-white">Kenya&apos;s Trusted Water Storage Solutions</span>
               </div>
               <h1 className="font-bold mb-8 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
                 Reliable Water Storage Solutions for <span className="text-yellow">Every Need</span>
               </h1>
-              <p className="mb-10 leading-relaxed max-w-[600px] mx-auto lg:mx-0 text-gray-200 text-lg lg:text-xl">
+              <p className="mb-10 leading-relaxed max-w-[600px] mx-auto lg:mx-0 text-gray-100 text-lg lg:text-xl">
                 Discover durable water storage solutions for homes, farms, businesses, and industrial applications.
               </p>
               <div className="flex flex-col sm:flex-row gap-5 items-stretch sm:items-center justify-center lg:justify-start mb-10">
@@ -59,7 +64,7 @@ export default function HomePage() {
             {/* Hero Image */}
             <div className="flex items-center justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-[500px] sm:max-w-[550px] md:max-w-[600px] lg:max-w-[650px]">
-                <div className="w-full rounded-2xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm p-8">
+                <div className="w-full rounded-2xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm p-8 border border-white/20">
                   <img
                     src="/vertical.jpeg"
                     alt="Vertical Cylindrical Water Tank"
@@ -72,17 +77,39 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Shop by Category */}
-      <section className="py-20 lg:py-24 bg-background">
+      {/* Trust Section */}
+      <section className="py-12 lg:py-16 bg-white border-b border-border">
         <Container>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+            {[
+              { icon: Factory, title: 'Industrial Grade', desc: 'Premium HDPE materials' },
+              { icon: CheckCircle2, title: 'Quality Assured', desc: 'Durable construction' },
+              { icon: Calculator, title: 'Wide Range', desc: '100L to 24,000L tanks' },
+              { icon: Wrench, title: 'Expert Support', desc: 'Technical assistance' },
+            ].map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-6 h-6 text-navy" />
+                </div>
+                <h3 className="font-semibold text-navy text-sm lg:text-base mb-1">{item.title}</h3>
+                <p className="text-xs lg:text-sm text-secondary">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Shop by Category */}
+      <section className="py-16 lg:py-20 bg-white">
+        <Container>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
             <h2 className="text-h2 text-navy leading-tight">Shop by Category</h2>
             <Link href={routes.products} className="text-blue font-semibold inline-flex items-center hover:underline text-base">
               View all
               <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             {[
               {
                 title: 'Vertical Cylindrical',
@@ -118,7 +145,7 @@ export default function HomePage() {
               <Link
                 key={category.title}
                 href={category.link}
-                className="bg-white rounded-2xl p-6 hover:shadow-lift transition-shadow group flex flex-col h-full min-w-0 border border-border"
+                className="bg-background rounded-2xl p-5 hover:shadow-lift transition-shadow group flex flex-col h-full min-w-0 border border-border"
               >
                 <div className="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-navy/20 transition-colors shrink-0">
                   <category.icon className="w-7 h-7 text-navy" />
@@ -132,9 +159,9 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <Container>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
             <h2 className="text-h2 text-navy leading-tight">Vertical Cylindrical Water Tanks</h2>
             <Link href={routes.products} className="text-blue font-semibold inline-flex items-center hover:underline text-base">
               View all products
@@ -146,12 +173,12 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Reliance Tank */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-16 lg:py-20 bg-background">
         <Container>
-          <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
+          <h2 className="text-h2 text-navy mb-10 text-center leading-tight">
             Why Choose Reliance Tank?
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {features.map((feature) => {
               const Icon = getIcon(feature.icon)
               return (
@@ -169,12 +196,12 @@ export default function HomePage() {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <Container>
-          <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
+          <h2 className="text-h2 text-navy mb-10 text-center leading-tight">
             Our Product Categories
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 title: 'Vertical Cylindrical Tanks',
@@ -227,12 +254,12 @@ export default function HomePage() {
       </section>
 
       {/* Applications */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-16 lg:py-20 bg-background">
         <Container>
-          <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
+          <h2 className="text-h2 text-navy mb-10 text-center leading-tight">
             Applications & Industries
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { title: 'Residential', icon: Home, description: 'Household water storage and rainwater harvesting' },
               { title: 'Agricultural', icon: Trees, description: 'Irrigation, livestock watering, farm operations' },
@@ -252,7 +279,7 @@ export default function HomePage() {
       </section>
 
       {/* Quality Section */}
-      <section className="py-20 lg:py-24 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <Container className="text-center">
           <h2 className="text-h2 text-navy mb-6 leading-tight">Quality & Engineering</h2>
           <p className="text-secondary mb-8 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
@@ -269,9 +296,9 @@ export default function HomePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-16 lg:py-20 bg-background">
         <Container>
-          <h2 className="text-h2 text-navy mb-12 text-center leading-tight">
+          <h2 className="text-h2 text-navy mb-10 text-center leading-tight">
             Frequently Asked Questions
           </h2>
           <div className="max-w-3xl mx-auto min-w-0">
@@ -286,7 +313,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 lg:py-24 bg-navy text-white">
+      <section className="py-16 lg:py-20 bg-navy text-white">
         <Container className="text-center">
           <h2 className="text-h2 mb-6 break-words leading-tight">
             Looking for the Right Water Storage Solution?
