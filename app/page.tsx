@@ -24,20 +24,20 @@ export default function HomePage() {
         </div>
 
         <Container>
-          <div className="max-w-7xl min-w-0 relative z-10 flex items-center justify-center h-full py-12 lg:py-16">
-            {/* Text Content - Centered on mobile, left-aligned on desktop */}
-            <div className="text-left w-full max-w-3xl">
-              <div className="mb-6 inline-flex items-center gap-2 bg-yellow/20 px-4 py-2 rounded-full border border-yellow/30 backdrop-blur-sm">
+          <div className="max-w-7xl min-w-0 relative z-10 flex items-center justify-center h-full py-10 lg:py-12 px-4">
+            {/* Text Content - Centered for better balance */}
+            <div className="text-center w-full max-w-4xl">
+              <div className="mb-5 inline-flex items-center gap-2 bg-yellow/20 px-4 py-2 rounded-full border border-yellow/30 backdrop-blur-sm">
                 <Droplets className="w-5 h-5 text-yellow" />
                 <span className="text-sm md:text-base font-semibold text-white">Kenya&apos;s Trusted Water Storage Solutions</span>
               </div>
-              <h1 className="font-bold mb-6 leading-tight text-white" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              <h1 className="font-bold mb-5 leading-tight text-white" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
                 Reliable Water Storage Solutions for <span className="text-yellow">Every Need</span>
               </h1>
-              <p className="mb-8 leading-relaxed max-w-[600px] text-gray-100 text-base md:text-lg">
+              <p className="mb-6 leading-relaxed max-w-2xl mx-auto text-gray-100 text-base md:text-lg">
                 Find the right water tank for your home, farm or business. Durable, affordable, and built to last.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-start mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-6">
                 <Link href={routes.products} className="flex-1 sm:flex-none min-w-0">
                   <Button variant="primary" size="lg" className="w-full sm:w-auto bg-yellow text-navy hover:bg-yellow-light text-base md:text-lg px-8 py-3">
                     Shop Water Tanks
@@ -50,11 +50,11 @@ export default function HomePage() {
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center gap-3">
                 <Phone className="w-5 h-5 text-yellow" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-yellow transition-colors break-words"
+                  className="text-lg md:text-xl lg:text-2xl font-bold text-white hover:text-yellow transition-colors break-words"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
