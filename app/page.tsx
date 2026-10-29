@@ -16,43 +16,40 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-navy via-navy-light to-navy text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue rounded-full blur-3xl -translate-x-1/3 translate-y-1/3"></div>
-        </div>
+      <section className="relative bg-cover bg-center bg-no-repeat text-white overflow-hidden" style={{ backgroundImage: 'url("/heroes page.jpe")' }}>
+        <div className="absolute inset-0 bg-navy/80"></div>
         <Container>
           <div className="max-w-7xl min-w-0 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-24 lg:py-32">
             {/* Text Content */}
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="mb-6 inline-flex items-center gap-2 bg-yellow/20 px-4 py-2 rounded-full border border-yellow/30">
-                <Droplets className="w-5 h-5 text-yellow" />
-                <span className="text-sm md:text-base font-semibold text-white">Kenya&apos;s Trusted Water Storage Solutions</span>
+              <div className="mb-8 inline-flex items-center gap-2 bg-yellow/20 px-6 py-3 rounded-full border border-yellow/30">
+                <Droplets className="w-6 h-6 text-yellow" />
+                <span className="text-base md:text-lg font-semibold text-white">Kenya&apos;s Trusted Water Storage Solutions</span>
               </div>
-              <h1 className="font-bold mb-6 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white text-hero">
+              <h1 className="font-bold mb-8 leading-tight break-words max-w-4xl mx-auto lg:mx-0 text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
                 Reliable Water Storage Solutions for <span className="text-yellow">Every Need</span>
               </h1>
-              <p className="mb-8 leading-relaxed max-w-[550px] mx-auto lg:mx-0 text-gray-200 text-base lg:text-lg">
+              <p className="mb-10 leading-relaxed max-w-[600px] mx-auto lg:mx-0 text-gray-200 text-lg lg:text-xl">
                 Discover durable water storage solutions for homes, farms, businesses, and industrial applications.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center lg:justify-start mb-8">
+              <div className="flex flex-col sm:flex-row gap-5 items-stretch sm:items-center justify-center lg:justify-start mb-10">
                 <Link href={routes.products} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="primary" size="lg" className="w-full sm:w-auto bg-yellow text-navy hover:bg-yellow-light">
+                  <Button variant="primary" size="lg" className="w-full sm:w-auto bg-yellow text-navy hover:bg-yellow-light text-lg px-10 py-4">
                     Shop Water Tanks
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <ArrowRight className="ml-2 w-6 h-6" />
                   </Button>
                 </Link>
                 <Link href={routes.quote} className="flex-1 sm:flex-none min-w-0">
-                  <Button variant="secondary" size="lg" className="w-full sm:w-auto bg-white/10 text-white border-white/30 hover:bg-white/20">
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto bg-white/10 text-white border-white/30 hover:bg-white/20 text-lg px-10 py-4">
                     Get a Quote
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center justify-center lg:justify-start gap-3">
-                <Phone className="w-5 h-5 text-yellow" />
+              <div className="flex items-center justify-center lg:justify-start gap-4">
+                <Phone className="w-6 h-6 text-yellow" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-xl md:text-2xl lg:text-3xl font-bold text-white hover:text-yellow transition-colors break-words"
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white hover:text-yellow transition-colors break-words"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
