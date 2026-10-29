@@ -22,7 +22,7 @@ export function SiteHeader() {
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-navy rounded-xl flex items-center justify-center shrink-0">
               <span className="text-white font-bold text-xl sm:text-2xl">R</span>
             </div>
-            <span className="text-lg sm:text-xl lg:text-2xl font-bold text-navy hidden sm:block truncate">
+            <span className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-navy truncate">
               {siteConfig.name}
             </span>
           </Link>
